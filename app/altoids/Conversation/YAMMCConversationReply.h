@@ -1,0 +1,34 @@
+//
+//  YAMMCConversationReply.h
+//  altoids
+//
+//  Created by Anand Biligiri on 10/27/11.
+//  Copyright 2011 Yahoo!. All rights reserved.
+//
+
+#import <Foundation/Foundation.h>
+
+// #define
+#pragma mark #defines
+
+// typedefs
+#pragma mark -
+#pragma mark Type definitions
+
+// enums
+#pragma mark -
+#pragma mark Enumerations
+
+#pragma mark -
+@interface YAMMCConversationReply : NSObject
+
+#pragma mark @property declarations
+
+#pragma mark  Class methods
+
+#pragma mark Instance methods
+- (id)initWithParsedJSONConversationReplyResponse:(NSDictionary *)parsedJSONConversationReplyResponse;
+
+- (NSString *)messageId;
+- (NSDate *)timestamp;
+@end

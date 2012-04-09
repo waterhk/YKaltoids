@@ -1,0 +1,77 @@
+10
+
+dir
+1383
+svn+ssh://svn.corp.yahoo.com/yahoo/mmc/altoids/trunk/app/altoids/Resources
+svn+ssh://svn.corp.yahoo.com/yahoo/mmc/altoids
+
+
+
+2012-04-06T17:20:40.381355Z
+1377
+dwhittle
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+dcac15b2-8259-11e0-a8b2-6140f1058f1e
+
+images
+dir
+
+en.lproj
+dir
+
+Settings.bundle
+dir
+
+fr.lproj
+dir
+
+fr-CA.lproj
+dir
+
+Default_Settings.plist
+file
+
+
+
+
+2012-04-09T08:02:36.000000Z
+c4fceab76539165ce2cf7d3459732580
+2011-12-07T06:20:24.436790Z
+782
+anandb
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+645
+

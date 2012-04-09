@@ -1,0 +1,29 @@
+##### Usage : 
+
+Run the project under the "AltoidsFrankified" scheme to use automation testing. 
+
+
+##### Frank (Hornbill) Integration : 
+
+Hornbill has been integrated with this tutorial : http://www.testingwithfrank.com/installing.html 
+Screencast  :  http://vimeo.com/27691115
+Following this tutorial would help Hornbill run locally ! 
+
+But the tutorial suggests addinga  newTarget for the implementation, which is avoided, and done by adding a new configuration. 
+
+##### Adding a new configuration - "Frankified"
+
+We have 4 configurations now - Debug, Distribution, Release, and Frankified. 
+
+The Frank Library is added to the the  Frankified configuration ONLY. 
+The specific libraries are added to the Frankified configuration in the "OTHER LINKER FLAGS"  in BUILD SETTINGS.
+The linker files have been added to the only the iOS Simulator.
+
+##### Note: 
+
+If this needs to be tested with the actual device, then the OTHER LINKER FLAGS will have to be added to the device section. 
+But, according to the Frank documentaion, it may not work as intended, as it is still experimental.
+
+##### FAQ: 
+
+http://www.testingwithfrank.com/faq.html

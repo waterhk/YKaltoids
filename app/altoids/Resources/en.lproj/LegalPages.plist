@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+    <array>
+        <string>http://m.yahoo.com/w/web/legal/LegalLinks.bp?.intl=US&amp;.lang=en</string>
+        <string>http://m.yahoo.com/w/web/privacy?.intl=US&amp;.lang=en</string>
+        <string>http://m.yahoo.com/w/web/legal/copyright?.intl=US&amp;.lang=en</string>
+    </array>
+</plist>

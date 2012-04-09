@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>serverEnvironment</key>
+	<dict>
+		<key>mmcServerHostname</key>
+		<string>us.mg.mail.yahoo.com</string>
+		<key>regServerHostname</key>
+		<string>us.mg.mail.yahoo.com</string>
+		<key>profileServerHostname</key>
+		<string>proxy.yospb.yahoo.com</string>
+		<key>mmcServiceName</key>
+		<string>mmc</string>
+		<key>registrationSMSPrefix</key>
+		<string>SIGNUP</string>
+		<key>registrationSkipSMS</key>
+		<false/>
+	</dict>
+	<key>resetOnLaunch</key>
+	<false/>
+</dict>
+</plist>

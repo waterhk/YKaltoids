@@ -1,0 +1,40 @@
+//
+// Prefix header for all source files of the 'altoids' target in the 'altoids' project
+//
+
+#import <Availability.h>
+#import "Common/Logging.h"
+#import "Common/Colors.h"
+#import "Common/Strings.h"
+#import "Common/Errors.h"
+#import "Common/Constants.h"
+#import "UINavigationBar+YACustomBackground.h"
+
+#ifndef __IPHONE_3_0
+#warning "This project uses features only available in iOS SDK 3.0 and later."
+#endif
+
+#ifdef __OBJC__
+    #import <UIKit/UIKit.h>
+    #import <Foundation/Foundation.h>
+    #import <CoreData/CoreData.h>
+#endif
+
+#define kMaxNumberOfParticipants 5
+
+// Display modes for YATokenView
+typedef enum {
+    YATokenViewDisplayTokens,
+    YATokenViewDisplayDescription
+} YATokenViewDisplayMode;
+
+// Address creation error codes
+enum {
+    YAInvalidAddressType
+};
+
+
+// Contact importer(s) fetch modes
+typedef enum {
+    YAContactFetchModeNABWithPhoneNumbers
+}YAContactFetchMode;

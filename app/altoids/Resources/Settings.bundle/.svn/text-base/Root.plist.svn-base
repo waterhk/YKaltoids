@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>PreferenceSpecifiers</key>
+	<array>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Reset On Launch</string>
+			<key>Key</key>
+			<string>resetOnLaunch</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSToggleSwitchSpecifier</string>
+			<key>Title</key>
+			<string>Skip Registration SMS</string>
+			<key>Key</key>
+			<string>registrationSkipSMS</string>
+			<key>DefaultValue</key>
+			<false/>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSGroupSpecifier</string>
+			<key>Title</key>
+			<string>Server</string>
+		</dict>
+		<dict>
+			<key>Type</key>
+			<string>PSMultiValueSpecifier</string>
+			<key>Title</key>
+			<string>Environment</string>
+			<key>Key</key>
+			<string>serverEnvironment</string>
+			<key>DefaultValue</key>
+			<integer>0</integer>
+			<key>Titles</key>
+			<array>
+				<string>Production</string>
+				<string>Alpha</string>
+				<string>QA</string>
+				<string>Custom</string>
+			</array>
+			<key>Values</key>
+			<array>
+				<dict>
+					<key>mmcServerHostname</key>
+					<string>us.mg.mail.yahoo.com</string>
+					<key>regServerHostname</key>
+					<string>us.mg.mail.yahoo.com</string>
+					<key>profileServerHostname</key>
+					<string>proxy.yospb.yahoo.com</string>
+					<key>mmcServiceName</key>
+					<string>mmc</string>
+					<key>registrationSMSPrefix</key>
+					<string>SIGNUP</string>
+				</dict>
+				<dict>
+					<key>mmcServerHostname</key>
+					<string>mmcalpha1.mg999.mail.yahoo.com</string>
+					<key>regServerHostname</key>
+					<string>mmcalpha1.mg999.mail.yahoo.com</string>
+					<key>profileServerHostname</key>
+					<string>proxy.yospb.yahoo.com</string>
+					<key>mmcServiceName</key>
+					<string>mmc</string>
+					<key>registrationSMSPrefix</key>
+					<string>SIGNUP STAGE</string>
+				</dict>
+				<dict>
+					<key>mmcServerHostname</key>
+					<string>qa.mg.mail.yahoo.com</string>
+					<key>regServerHostname</key>
+					<string>qa.mg.mail.yahoo.com</string>
+					<key>profileServerHostname</key>
+					<string>proxy.yospb.yahoo.com</string>
+					<key>mmcServiceName</key>
+					<string>mmc</string>
+					<key>registrationSMSPrefix</key>
+					<string>SIGNUP STAGE</string>
+				</dict>
+				<dict>
+					<key>custom</key>
+					<true/>
+				</dict>
+			</array>
+		</dict>
+	</array>
+	<key>StringsTable</key>
+	<string>Root</string>
+</dict>
+</plist>

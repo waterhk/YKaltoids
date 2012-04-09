@@ -1,0 +1,33 @@
+K 10
+svn:ignore
+V 42
+code-coverage
+altoids.app
+.git
+.gitignore
+
+K 13
+svn:mergeinfo
+V 808
+/branches/anandb:213-219,303-307
+/branches/anandb/participant:705-708
+/branches/anandb/working:729-731
+/branches/jherron/bug5294476:908-918
+/branches/jherron/compose:1250-1360
+/branches/jherron/conversationlist:331-576
+/branches/jherron/convocompose:974-980
+/branches/jherron/convolist:1088-1096
+/branches/jherron/convpendingstate:932-955
+/branches/jherron/cr86506:920-929
+/branches/jherron/createconvorepo:52-60
+/branches/jherron/datamodel-validation:127-160
+/branches/jherron/datecalc:175-188
+/branches/jherron/ishubupdates:988-1010
+/branches/jherron/logmacros:170-184
+/branches/jherron/msgreplyscroll:1021-1063
+/branches/jherron/reginfo:865-903
+/branches/jherron/smsoverlay:1147-1167
+/branches/jherron/transportfactory:168-171
+/branches/jherron/verification:197-263
+/branches/vensri/dateFormatter:972-1114
+END

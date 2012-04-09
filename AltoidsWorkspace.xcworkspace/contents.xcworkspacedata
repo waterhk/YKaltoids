@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:shared/SBJSON/SBJson.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:shared/sessionManager/SessionManager.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:app/altoids.xcodeproj">
+   </FileRef>
+</Workspace>

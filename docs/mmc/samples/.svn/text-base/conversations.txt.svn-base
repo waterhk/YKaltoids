@@ -1,0 +1,127 @@
+{
+  "moreConvPresent" : true,
+  "conversations" :
+  [
+    {
+      "conversation" : 
+      {
+        "cid" : "123",
+        "summary" :
+        {
+          "totalMsgs" : 25,
+          "unreadMsgs" : 12
+        },
+        "mgrData" :
+        {
+          "participants" : 
+          [
+            {
+              "pid" : "1",
+              "firstname" : "Vivek",
+              "lastname" : "Aggarwal",
+              "created" : 2131353245,
+              "address" : "14081112222",
+              "addressType" : "sms",
+              "creator": 0
+            },
+            {
+              "pid" : "2",
+              "firstname" : "Naveen",
+              "lastname" : "Sanjeeva",
+              "created" : 213254325,
+              "address" : "14081112223",
+              "addressType" : "mmc",
+              "creator": 1,
+              "isYou": true
+            },
+            {
+              "pid" : "3",
+              "firstname" : "Amit",
+              "lastname" : "Rao",
+              "created": 413545643,
+              "address" : "14081112224",
+              "addressType" : "sms",
+              "creator": 0
+            }
+          ],
+          "topic" : "",
+          "sTopic" : "server generated topic"
+        } , 
+        "recentMsg" : 
+        {
+          "mid" : "1",
+          "info" : 
+          {
+            "subj" : "email subject",
+            "date" : 1224314,
+            "rcpts" : "Vivek Aggarwa, Naveen Sanjeeva and You",
+            "from" : 
+            {
+              "name" : "Vivek Aggarwal"
+            },
+            "snippet" : "Vivek deserves a break.."
+          }
+        }
+      }
+    },
+    {
+      "conversation" : 
+      {
+        "cid" : "124",
+        "summary" :
+        {
+          "totalMsgs" : 25,
+          "unreadMsgs" : 12
+        },
+        "mgrData" :
+        {
+          "isParticipant" : false 
+        } ,
+        "recentMsg" : 
+        {
+          "mid" : "1",
+          "info" : 
+          {
+            "subj" : "email's subject",
+            "date" : 1224312344,
+            "rcpts" : "Gitanjali Sheth, Ram Iyer and You",
+            "from" : 
+            {
+              "name" : "Ram Iyer"
+            },
+            "snippet" : "Too much work!!"
+          }
+        }
+      }
+    },
+    {
+      "conversation" :
+      {
+        "cid" : "125",
+        "errors" : 
+        [
+          {
+            "error" :
+            {
+              "code" : 1234,
+              "ns" : "mgr",
+              "message" : "failed to query sherpa"
+            }
+          }
+        ]
+      }
+    },
+    {
+      "conversation" :
+      {
+        "cid" : "126"
+      }
+    },
+    {
+      "conversation" :
+      {
+        "cid" : "127"
+      }
+    }
+  ]  
+}

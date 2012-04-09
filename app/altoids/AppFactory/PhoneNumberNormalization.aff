@@ -1,0 +1,25 @@
+phoneNumberNormalizer : CachingPhoneNumberNormalizer @ PhoneNumberNormalizer
+{
+    nonCachingPhoneNumberNormalizer;
+    Ye164FormatCache:[NSMutableDictionary dictionaryWithCapacity:8];
+    ComparisonFormatCache:[NSMutableDictionary dictionaryWithCapacity:8];
+    MemoryWarningNotificationCenter:[NSNotificationCenter defaultCenter];
+}
+
+
+##
+## The components defined below are
+## INTENDED FOR INTERNAL USE ONLY (by PhoneNumberNormalizer)
+##
+## If you are tempted to use any of the components below, instead expose the functionality through the PhoneNumberNormalizer façade.
+##
+
+nonCachingPhoneNumberNormalizer : PhoneNumberNormalizer @ PhoneNumberNormalizer
+{
+    localeRepository;
+    libPhoneNumberUtil;
+}
+
+libPhoneNumberUtil
+{
+}

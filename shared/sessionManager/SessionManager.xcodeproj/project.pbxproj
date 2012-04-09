@@ -1,0 +1,1010 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		4229D20A13F99D2600D49570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4229D20913F99D2600D49570 /* Foundation.framework */; };
+		4229D21813F99D2600D49570 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4229D21713F99D2600D49570 /* SenTestingKit.framework */; };
+		4229D21A13F99D2600D49570 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4229D21913F99D2600D49570 /* UIKit.framework */; };
+		4229D21B13F99D2600D49570 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4229D20913F99D2600D49570 /* Foundation.framework */; };
+		4229D21D13F99D2600D49570 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 4229D21C13F99D2600D49570 /* CoreGraphics.framework */; };
+		4229D22013F99D2600D49570 /* libSessionManager.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4229D20613F99D2600D49570 /* libSessionManager.a */; };
+		4229D22613F99D2600D49570 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 4229D22413F99D2600D49570 /* InfoPlist.strings */; };
+		424B5CBD1484370E0022DB7A /* LoginViewDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = 424B5CBC1484370E0022DB7A /* LoginViewDelegate.h */; };
+		4252A68914856CE100DADBC4 /* YSMErrors.h in Headers */ = {isa = PBXBuildFile; fileRef = 4252A68714856CE100DADBC4 /* YSMErrors.h */; };
+		4252A69A1485A42700DADBC4 /* YSMAuthenticationErrorCreator.m in Sources */ = {isa = PBXBuildFile; fileRef = 4252A68E1485A36B00DADBC4 /* YSMAuthenticationErrorCreator.m */; };
+		4252A69E1485A5D300DADBC4 /* AuthenticationErrorCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4252A68D1485A36B00DADBC4 /* AuthenticationErrorCreator.h */; };
+		4252A69F1485A5D300DADBC4 /* YSMAuthenticationErrorCreator.h in Headers */ = {isa = PBXBuildFile; fileRef = 4252A68F1485A36B00DADBC4 /* YSMAuthenticationErrorCreator.h */; };
+		4252A6B814885FED00DADBC4 /* YSMErrorDomainTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 4252A6B714885FED00DADBC4 /* YSMErrorDomainTests.m */; };
+		4252A6BA148863A700DADBC4 /* libOCMock.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 4252A6B9148863A600DADBC4 /* libOCMock.a */; };
+		AED8017A151907820005379D /* LoginFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = AED80179151907820005379D /* LoginFormatter.h */; };
+		AED8017D151908980005379D /* YALoginFormatter.h in Headers */ = {isa = PBXBuildFile; fileRef = AED8017C151908980005379D /* YALoginFormatter.h */; };
+		AED8017F151908D50005379D /* YALoginFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = AED8017E151908D50005379D /* YALoginFormatter.m */; };
+		AED80180151908D50005379D /* YALoginFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = AED8017E151908D50005379D /* YALoginFormatter.m */; };
+		F76020B514057D24007D0EF9 /* YSMAccountInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F760207E14057D24007D0EF9 /* YSMAccountInfo.h */; };
+		F76020B614057D24007D0EF9 /* YSMAccountInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = F760207F14057D24007D0EF9 /* YSMAccountInfo.m */; };
+		F76020B714057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208014057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.h */; };
+		F76020B814057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F760208114057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.m */; };
+		F76020B914057D24007D0EF9 /* AccountInfoRepositoryFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208214057D24007D0EF9 /* AccountInfoRepositoryFactory.h */; };
+		F76020BA14057D24007D0EF9 /* AccountInfoRepository.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208314057D24007D0EF9 /* AccountInfoRepository.h */; };
+		F76020BB14057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208414057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.h */; };
+		F76020BC14057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.m in Sources */ = {isa = PBXBuildFile; fileRef = F760208514057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.m */; };
+		F76020BD14057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208614057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.h */; };
+		F76020BE14057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.m in Sources */ = {isa = PBXBuildFile; fileRef = F760208714057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.m */; };
+		F76020BF14057D24007D0EF9 /* YSMFilesystemPathGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208814057D24007D0EF9 /* YSMFilesystemPathGenerator.h */; };
+		F76020C014057D24007D0EF9 /* YSMFilesystemPathGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F760208914057D24007D0EF9 /* YSMFilesystemPathGenerator.m */; };
+		F76020C114057D24007D0EF9 /* FilesystemPathGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208A14057D24007D0EF9 /* FilesystemPathGenerator.h */; };
+		F76020C214057D24007D0EF9 /* YSMAppInfo.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208C14057D24007D0EF9 /* YSMAppInfo.h */; };
+		F76020C314057D24007D0EF9 /* ErrorDescriptionGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208D14057D24007D0EF9 /* ErrorDescriptionGenerator.h */; };
+		F76020C414057D24007D0EF9 /* NSString+URLParamEncoding.h in Headers */ = {isa = PBXBuildFile; fileRef = F760208E14057D24007D0EF9 /* NSString+URLParamEncoding.h */; };
+		F76020C514057D24007D0EF9 /* NSString+URLParamEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F760208F14057D24007D0EF9 /* NSString+URLParamEncoding.m */; };
+		F76020C614057D24007D0EF9 /* YSMErrorDescriptionGenerator.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209014057D24007D0EF9 /* YSMErrorDescriptionGenerator.h */; };
+		F76020C714057D24007D0EF9 /* YSMErrorDescriptionGenerator.m in Sources */ = {isa = PBXBuildFile; fileRef = F760209114057D24007D0EF9 /* YSMErrorDescriptionGenerator.m */; };
+		F76020C814057D24007D0EF9 /* YSMConnectionWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209314057D24007D0EF9 /* YSMConnectionWrapper.h */; };
+		F76020C914057D24007D0EF9 /* YSMConnectionWrapper.m in Sources */ = {isa = PBXBuildFile; fileRef = F760209414057D24007D0EF9 /* YSMConnectionWrapper.m */; };
+		F76020CA14057D24007D0EF9 /* YSMConnectionWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209514057D24007D0EF9 /* YSMConnectionWrapperFactory.h */; };
+		F76020CB14057D24007D0EF9 /* YSMConnectionWrapperFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F760209614057D24007D0EF9 /* YSMConnectionWrapperFactory.m */; };
+		F76020CC14057D24007D0EF9 /* ConnectionWrapperFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209714057D24007D0EF9 /* ConnectionWrapperFactory.h */; };
+		F76020CD14057D24007D0EF9 /* ConnectionWrapper.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209814057D24007D0EF9 /* ConnectionWrapper.h */; };
+		F76020CE14057D24007D0EF9 /* YSMCookieCrumbRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209A14057D24007D0EF9 /* YSMCookieCrumbRequester.h */; };
+		F76020CF14057D24007D0EF9 /* YSMCookieCrumbRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = F760209B14057D24007D0EF9 /* YSMCookieCrumbRequester.m */; };
+		F76020D014057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209C14057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.h */; };
+		F76020D114057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F760209D14057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.m */; };
+		F76020D214057D24007D0EF9 /* CookieCrumbRequesterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209E14057D24007D0EF9 /* CookieCrumbRequesterFactory.h */; };
+		F76020D314057D24007D0EF9 /* CookieCrumbRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = F760209F14057D24007D0EF9 /* CookieCrumbRequester.h */; };
+		F76020D414057D24007D0EF9 /* YSMLoginService.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020A014057D24007D0EF9 /* YSMLoginService.h */; };
+		F76020D514057D24007D0EF9 /* YSMLoginService.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020A114057D24007D0EF9 /* YSMLoginService.m */; };
+		F76020D614057D24007D0EF9 /* YSMLoginServiceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020A214057D24007D0EF9 /* YSMLoginServiceFactory.h */; };
+		F76020D714057D24007D0EF9 /* YSMLoginServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020A314057D24007D0EF9 /* YSMLoginServiceFactory.m */; };
+		F76020D814057D24007D0EF9 /* LoginServiceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020A414057D24007D0EF9 /* LoginServiceFactory.h */; };
+		F76020D914057D24007D0EF9 /* LoginService.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020A514057D24007D0EF9 /* LoginService.h */; };
+		F76020DA14057D24007D0EF9 /* YSMRefreshService.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020A614057D24007D0EF9 /* YSMRefreshService.h */; };
+		F76020DB14057D24007D0EF9 /* YSMRefreshService.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020A714057D24007D0EF9 /* YSMRefreshService.m */; };
+		F76020DC14057D24007D0EF9 /* YSMRefreshServiceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020A814057D24007D0EF9 /* YSMRefreshServiceFactory.h */; };
+		F76020DD14057D24007D0EF9 /* YSMRefreshServiceFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020A914057D24007D0EF9 /* YSMRefreshServiceFactory.m */; };
+		F76020DE14057D24007D0EF9 /* RefreshServiceFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020AA14057D24007D0EF9 /* RefreshServiceFactory.h */; };
+		F76020DF14057D24007D0EF9 /* RefreshService.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020AB14057D24007D0EF9 /* RefreshService.h */; };
+		F76020E014057D24007D0EF9 /* YSMTokenRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020AC14057D24007D0EF9 /* YSMTokenRequester.h */; };
+		F76020E114057D24007D0EF9 /* YSMTokenRequester.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020AD14057D24007D0EF9 /* YSMTokenRequester.m */; };
+		F76020E214057D24007D0EF9 /* YSMTokenRequesterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020AE14057D24007D0EF9 /* YSMTokenRequesterFactory.h */; };
+		F76020E314057D24007D0EF9 /* YSMTokenRequesterFactory.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020AF14057D24007D0EF9 /* YSMTokenRequesterFactory.m */; };
+		F76020E414057D24007D0EF9 /* TokenRequesterFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020B014057D24007D0EF9 /* TokenRequesterFactory.h */; };
+		F76020E514057D24007D0EF9 /* TokenRequester.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020B114057D24007D0EF9 /* TokenRequester.h */; };
+		F76020E614057D24007D0EF9 /* YSMSessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020B214057D24007D0EF9 /* YSMSessionManager.h */; };
+		F76020E714057D24007D0EF9 /* YSMSessionManager.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020B314057D24007D0EF9 /* YSMSessionManager.m */; };
+		F76020E814057D24007D0EF9 /* SessionManager.h in Headers */ = {isa = PBXBuildFile; fileRef = F76020B414057D24007D0EF9 /* SessionManager.h */; };
+		F76020F814057DF5007D0EF9 /* AccountInfoRepositoryWithFilesystemTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020EB14057DF5007D0EF9 /* AccountInfoRepositoryWithFilesystemTests.m */; };
+		F76020F914057DF5007D0EF9 /* AccountInfoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020ED14057DF5007D0EF9 /* AccountInfoTests.m */; };
+		F76020FA14057DF5007D0EF9 /* FilesystemPathGeneratorTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020EF14057DF5007D0EF9 /* FilesystemPathGeneratorTests.m */; };
+		F76020FB14057DF5007D0EF9 /* ConnectionWrapperTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020F214057DF5007D0EF9 /* ConnectionWrapperTests.m */; };
+		F76020FC14057DF5007D0EF9 /* LoginServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020F514057DF5007D0EF9 /* LoginServiceTests.m */; };
+		F76020FD14057DF5007D0EF9 /* SessionManagerTests.m in Sources */ = {isa = PBXBuildFile; fileRef = F76020F714057DF5007D0EF9 /* SessionManagerTests.m */; };
+		F76020FF14057E60007D0EF9 /* NSString+URLParamEncoding.m in Sources */ = {isa = PBXBuildFile; fileRef = F760208F14057D24007D0EF9 /* NSString+URLParamEncoding.m */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		4229D21E13F99D2600D49570 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 4229D1FD13F99D2500D49570 /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 4229D20513F99D2600D49570;
+			remoteInfo = SessionManager;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		4229D20613F99D2600D49570 /* libSessionManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSessionManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
+		4229D20913F99D2600D49570 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		4229D20D13F99D2600D49570 /* SessionManager-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SessionManager-Prefix.pch"; sourceTree = "<group>"; };
+		4229D21613F99D2600D49570 /* SessionManagerTests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SessionManagerTests.octest; sourceTree = BUILT_PRODUCTS_DIR; };
+		4229D21713F99D2600D49570 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		4229D21913F99D2600D49570 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = Library/Frameworks/UIKit.framework; sourceTree = DEVELOPER_DIR; };
+		4229D21C13F99D2600D49570 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = Library/Frameworks/CoreGraphics.framework; sourceTree = DEVELOPER_DIR; };
+		4229D22313F99D2600D49570 /* SessionManagerTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "SessionManagerTests-Info.plist"; sourceTree = "<group>"; };
+		4229D22513F99D2600D49570 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		4233A8B313FC4A2600C017DF /* App.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = App.py; sourceTree = "<group>"; };
+		4233A8B413FC4A2600C017DF /* appFactoryGenerator.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = appFactoryGenerator.py; sourceTree = "<group>"; };
+		4233A8B513FC4A2600C017DF /* Component.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Component.py; sourceTree = "<group>"; };
+		4233A8B713FC4A2600C017DF /* syntax.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = syntax.txt; sourceTree = "<group>"; };
+		4233A8B813FC4A2600C017DF /* test.aff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test.aff; sourceTree = "<group>"; };
+		4233A8B913FC4A2600C017DF /* test_include.aff */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = test_include.aff; sourceTree = "<group>"; };
+		4233A8BA13FC4A2600C017DF /* HeaderFileWriter.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = HeaderFileWriter.py; sourceTree = "<group>"; };
+		4233A8BB13FC4A2600C017DF /* MethodFileWriter.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = MethodFileWriter.py; sourceTree = "<group>"; };
+		4233A8BC13FC4A2600C017DF /* Parser.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Parser.py; sourceTree = "<group>"; };
+		4233A8BD13FC4A2600C017DF /* Scanner.py */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.script.python; path = Scanner.py; sourceTree = "<group>"; };
+		424B5CBC1484370E0022DB7A /* LoginViewDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginViewDelegate.h; sourceTree = "<group>"; };
+		4252A68714856CE100DADBC4 /* YSMErrors.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMErrors.h; sourceTree = "<group>"; };
+		4252A68D1485A36B00DADBC4 /* AuthenticationErrorCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuthenticationErrorCreator.h; sourceTree = "<group>"; };
+		4252A68E1485A36B00DADBC4 /* YSMAuthenticationErrorCreator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMAuthenticationErrorCreator.m; sourceTree = "<group>"; };
+		4252A68F1485A36B00DADBC4 /* YSMAuthenticationErrorCreator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMAuthenticationErrorCreator.h; sourceTree = "<group>"; };
+		4252A6B614885FED00DADBC4 /* YSMErrorDomainTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMErrorDomainTests.h; sourceTree = "<group>"; };
+		4252A6B714885FED00DADBC4 /* YSMErrorDomainTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMErrorDomainTests.m; sourceTree = "<group>"; };
+		4252A6B9148863A600DADBC4 /* libOCMock.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOCMock.a; path = ../Library/libOCMock.a; sourceTree = "<group>"; };
+		AED80179151907820005379D /* LoginFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginFormatter.h; sourceTree = "<group>"; };
+		AED8017C151908980005379D /* YALoginFormatter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YALoginFormatter.h; sourceTree = "<group>"; };
+		AED8017E151908D50005379D /* YALoginFormatter.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YALoginFormatter.m; sourceTree = "<group>"; };
+		F760207E14057D24007D0EF9 /* YSMAccountInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMAccountInfo.h; sourceTree = "<group>"; };
+		F760207F14057D24007D0EF9 /* YSMAccountInfo.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMAccountInfo.m; sourceTree = "<group>"; };
+		F760208014057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMAccountInfoRepositoryFactory.h; sourceTree = "<group>"; };
+		F760208114057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMAccountInfoRepositoryFactory.m; sourceTree = "<group>"; };
+		F760208214057D24007D0EF9 /* AccountInfoRepositoryFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoRepositoryFactory.h; sourceTree = "<group>"; };
+		F760208314057D24007D0EF9 /* AccountInfoRepository.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoRepository.h; sourceTree = "<group>"; };
+		F760208414057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMAccountInfoRepositoryWithFilesystem.h; sourceTree = "<group>"; };
+		F760208514057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMAccountInfoRepositoryWithFilesystem.m; sourceTree = "<group>"; };
+		F760208614057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMAccountInfoRepositoryWithKeychain.h; sourceTree = "<group>"; };
+		F760208714057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMAccountInfoRepositoryWithKeychain.m; sourceTree = "<group>"; };
+		F760208814057D24007D0EF9 /* YSMFilesystemPathGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMFilesystemPathGenerator.h; sourceTree = "<group>"; };
+		F760208914057D24007D0EF9 /* YSMFilesystemPathGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMFilesystemPathGenerator.m; sourceTree = "<group>"; };
+		F760208A14057D24007D0EF9 /* FilesystemPathGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesystemPathGenerator.h; sourceTree = "<group>"; };
+		F760208C14057D24007D0EF9 /* YSMAppInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMAppInfo.h; sourceTree = "<group>"; };
+		F760208D14057D24007D0EF9 /* ErrorDescriptionGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ErrorDescriptionGenerator.h; sourceTree = "<group>"; };
+		F760208E14057D24007D0EF9 /* NSString+URLParamEncoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+URLParamEncoding.h"; sourceTree = "<group>"; };
+		F760208F14057D24007D0EF9 /* NSString+URLParamEncoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+URLParamEncoding.m"; sourceTree = "<group>"; };
+		F760209014057D24007D0EF9 /* YSMErrorDescriptionGenerator.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMErrorDescriptionGenerator.h; sourceTree = "<group>"; };
+		F760209114057D24007D0EF9 /* YSMErrorDescriptionGenerator.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMErrorDescriptionGenerator.m; sourceTree = "<group>"; };
+		F760209314057D24007D0EF9 /* YSMConnectionWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YSMConnectionWrapper.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F760209414057D24007D0EF9 /* YSMConnectionWrapper.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMConnectionWrapper.m; sourceTree = "<group>"; };
+		F760209514057D24007D0EF9 /* YSMConnectionWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMConnectionWrapperFactory.h; sourceTree = "<group>"; };
+		F760209614057D24007D0EF9 /* YSMConnectionWrapperFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMConnectionWrapperFactory.m; sourceTree = "<group>"; };
+		F760209714057D24007D0EF9 /* ConnectionWrapperFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionWrapperFactory.h; sourceTree = "<group>"; };
+		F760209814057D24007D0EF9 /* ConnectionWrapper.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionWrapper.h; sourceTree = "<group>"; };
+		F760209A14057D24007D0EF9 /* YSMCookieCrumbRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YSMCookieCrumbRequester.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F760209B14057D24007D0EF9 /* YSMCookieCrumbRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMCookieCrumbRequester.m; sourceTree = "<group>"; };
+		F760209C14057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMCookieCrumbRequesterFactory.h; sourceTree = "<group>"; };
+		F760209D14057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMCookieCrumbRequesterFactory.m; sourceTree = "<group>"; };
+		F760209E14057D24007D0EF9 /* CookieCrumbRequesterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieCrumbRequesterFactory.h; sourceTree = "<group>"; };
+		F760209F14057D24007D0EF9 /* CookieCrumbRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CookieCrumbRequester.h; sourceTree = "<group>"; };
+		F76020A014057D24007D0EF9 /* YSMLoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YSMLoginService.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F76020A114057D24007D0EF9 /* YSMLoginService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMLoginService.m; sourceTree = "<group>"; };
+		F76020A214057D24007D0EF9 /* YSMLoginServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMLoginServiceFactory.h; sourceTree = "<group>"; };
+		F76020A314057D24007D0EF9 /* YSMLoginServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMLoginServiceFactory.m; sourceTree = "<group>"; };
+		F76020A414057D24007D0EF9 /* LoginServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginServiceFactory.h; sourceTree = "<group>"; };
+		F76020A514057D24007D0EF9 /* LoginService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginService.h; sourceTree = "<group>"; };
+		F76020A614057D24007D0EF9 /* YSMRefreshService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YSMRefreshService.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F76020A714057D24007D0EF9 /* YSMRefreshService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMRefreshService.m; sourceTree = "<group>"; };
+		F76020A814057D24007D0EF9 /* YSMRefreshServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMRefreshServiceFactory.h; sourceTree = "<group>"; };
+		F76020A914057D24007D0EF9 /* YSMRefreshServiceFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMRefreshServiceFactory.m; sourceTree = "<group>"; };
+		F76020AA14057D24007D0EF9 /* RefreshServiceFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshServiceFactory.h; sourceTree = "<group>"; };
+		F76020AB14057D24007D0EF9 /* RefreshService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RefreshService.h; sourceTree = "<group>"; };
+		F76020AC14057D24007D0EF9 /* YSMTokenRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YSMTokenRequester.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F76020AD14057D24007D0EF9 /* YSMTokenRequester.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMTokenRequester.m; sourceTree = "<group>"; };
+		F76020AE14057D24007D0EF9 /* YSMTokenRequesterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = YSMTokenRequesterFactory.h; sourceTree = "<group>"; };
+		F76020AF14057D24007D0EF9 /* YSMTokenRequesterFactory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMTokenRequesterFactory.m; sourceTree = "<group>"; };
+		F76020B014057D24007D0EF9 /* TokenRequesterFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TokenRequesterFactory.h; sourceTree = "<group>"; };
+		F76020B114057D24007D0EF9 /* TokenRequester.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TokenRequester.h; sourceTree = "<group>"; };
+		F76020B214057D24007D0EF9 /* YSMSessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; lineEnding = 0; path = YSMSessionManager.h; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objcpp; };
+		F76020B314057D24007D0EF9 /* YSMSessionManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = YSMSessionManager.m; sourceTree = "<group>"; };
+		F76020B414057D24007D0EF9 /* SessionManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManager.h; sourceTree = "<group>"; };
+		F76020EA14057DF5007D0EF9 /* AccountInfoRepositoryWithFilesystemTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoRepositoryWithFilesystemTests.h; sourceTree = "<group>"; };
+		F76020EB14057DF5007D0EF9 /* AccountInfoRepositoryWithFilesystemTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfoRepositoryWithFilesystemTests.m; sourceTree = "<group>"; };
+		F76020EC14057DF5007D0EF9 /* AccountInfoTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AccountInfoTests.h; sourceTree = "<group>"; };
+		F76020ED14057DF5007D0EF9 /* AccountInfoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AccountInfoTests.m; sourceTree = "<group>"; };
+		F76020EE14057DF5007D0EF9 /* FilesystemPathGeneratorTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilesystemPathGeneratorTests.h; sourceTree = "<group>"; };
+		F76020EF14057DF5007D0EF9 /* FilesystemPathGeneratorTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilesystemPathGeneratorTests.m; sourceTree = "<group>"; };
+		F76020F114057DF5007D0EF9 /* ConnectionWrapperTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ConnectionWrapperTests.h; sourceTree = "<group>"; };
+		F76020F214057DF5007D0EF9 /* ConnectionWrapperTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = ConnectionWrapperTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F76020F414057DF5007D0EF9 /* LoginServiceTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = LoginServiceTests.h; sourceTree = "<group>"; };
+		F76020F514057DF5007D0EF9 /* LoginServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; lineEnding = 0; path = LoginServiceTests.m; sourceTree = "<group>"; xcLanguageSpecificationIdentifier = xcode.lang.objc; };
+		F76020F614057DF5007D0EF9 /* SessionManagerTests.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SessionManagerTests.h; sourceTree = "<group>"; };
+		F76020F714057DF5007D0EF9 /* SessionManagerTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SessionManagerTests.m; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		4229D20313F99D2600D49570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4229D20A13F99D2600D49570 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4229D21213F99D2600D49570 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4252A6BA148863A700DADBC4 /* libOCMock.a in Frameworks */,
+				4229D21813F99D2600D49570 /* SenTestingKit.framework in Frameworks */,
+				4229D21A13F99D2600D49570 /* UIKit.framework in Frameworks */,
+				4229D21B13F99D2600D49570 /* Foundation.framework in Frameworks */,
+				4229D21D13F99D2600D49570 /* CoreGraphics.framework in Frameworks */,
+				4229D22013F99D2600D49570 /* libSessionManager.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		4229D1FB13F99D2500D49570 = {
+			isa = PBXGroup;
+			children = (
+				4252A6B9148863A600DADBC4 /* libOCMock.a */,
+				4233A8B113FC4A2600C017DF /* scripts */,
+				4229D20B13F99D2600D49570 /* SessionManager */,
+				4229D22113F99D2600D49570 /* SessionManagerTests */,
+				4229D20813F99D2600D49570 /* Frameworks */,
+				4229D20713F99D2600D49570 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		4229D20713F99D2600D49570 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				4229D20613F99D2600D49570 /* libSessionManager.a */,
+				4229D21613F99D2600D49570 /* SessionManagerTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		4229D20813F99D2600D49570 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				4229D20913F99D2600D49570 /* Foundation.framework */,
+				4229D21713F99D2600D49570 /* SenTestingKit.framework */,
+				4229D21913F99D2600D49570 /* UIKit.framework */,
+				4229D21C13F99D2600D49570 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		4229D20B13F99D2600D49570 /* SessionManager */ = {
+			isa = PBXGroup;
+			children = (
+				F76020B414057D24007D0EF9 /* SessionManager.h */,
+				F76020B214057D24007D0EF9 /* YSMSessionManager.h */,
+				F76020B314057D24007D0EF9 /* YSMSessionManager.m */,
+				F760207D14057D24007D0EF9 /* Account */,
+				F760208B14057D24007D0EF9 /* Common */,
+				F760209214057D24007D0EF9 /* Connection */,
+				4252A67B14856B5D00DADBC4 /* ErrorHandling */,
+				F760209914057D24007D0EF9 /* LoginAndRefresh */,
+				4229D20C13F99D2600D49570 /* Supporting Files */,
+			);
+			path = SessionManager;
+			sourceTree = "<group>";
+		};
+		4229D20C13F99D2600D49570 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4229D20D13F99D2600D49570 /* SessionManager-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4229D22113F99D2600D49570 /* SessionManagerTests */ = {
+			isa = PBXGroup;
+			children = (
+				4252A6B114885F5900DADBC4 /* ErrorHandling */,
+				F76020E914057DF5007D0EF9 /* AccountTests */,
+				F76020F014057DF5007D0EF9 /* ConnectionTests */,
+				F76020F314057DF5007D0EF9 /* LoginServiceTests */,
+				F76020F614057DF5007D0EF9 /* SessionManagerTests.h */,
+				F76020F714057DF5007D0EF9 /* SessionManagerTests.m */,
+				4229D22213F99D2600D49570 /* Supporting Files */,
+			);
+			path = SessionManagerTests;
+			sourceTree = "<group>";
+		};
+		4229D22213F99D2600D49570 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				4229D22313F99D2600D49570 /* SessionManagerTests-Info.plist */,
+				4229D22413F99D2600D49570 /* InfoPlist.strings */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		4233A8B113FC4A2600C017DF /* scripts */ = {
+			isa = PBXGroup;
+			children = (
+				4233A8B213FC4A2600C017DF /* appFactoryGenerator */,
+			);
+			name = scripts;
+			path = ../../scripts;
+			sourceTree = "<group>";
+		};
+		4233A8B213FC4A2600C017DF /* appFactoryGenerator */ = {
+			isa = PBXGroup;
+			children = (
+				4233A8B313FC4A2600C017DF /* App.py */,
+				4233A8B413FC4A2600C017DF /* appFactoryGenerator.py */,
+				4233A8B513FC4A2600C017DF /* Component.py */,
+				4233A8B613FC4A2600C017DF /* doc */,
+				4233A8BA13FC4A2600C017DF /* HeaderFileWriter.py */,
+				4233A8BB13FC4A2600C017DF /* MethodFileWriter.py */,
+				4233A8BC13FC4A2600C017DF /* Parser.py */,
+				4233A8BD13FC4A2600C017DF /* Scanner.py */,
+			);
+			path = appFactoryGenerator;
+			sourceTree = "<group>";
+		};
+		4233A8B613FC4A2600C017DF /* doc */ = {
+			isa = PBXGroup;
+			children = (
+				4233A8B713FC4A2600C017DF /* syntax.txt */,
+				4233A8B813FC4A2600C017DF /* test.aff */,
+				4233A8B913FC4A2600C017DF /* test_include.aff */,
+			);
+			path = doc;
+			sourceTree = "<group>";
+		};
+		4252A67B14856B5D00DADBC4 /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				4252A68D1485A36B00DADBC4 /* AuthenticationErrorCreator.h */,
+				4252A68F1485A36B00DADBC4 /* YSMAuthenticationErrorCreator.h */,
+				4252A68E1485A36B00DADBC4 /* YSMAuthenticationErrorCreator.m */,
+			);
+			name = ErrorHandling;
+			sourceTree = "<group>";
+		};
+		4252A6B114885F5900DADBC4 /* ErrorHandling */ = {
+			isa = PBXGroup;
+			children = (
+				4252A6B614885FED00DADBC4 /* YSMErrorDomainTests.h */,
+				4252A6B714885FED00DADBC4 /* YSMErrorDomainTests.m */,
+			);
+			path = ErrorHandling;
+			sourceTree = "<group>";
+		};
+		F760207D14057D24007D0EF9 /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				F760207E14057D24007D0EF9 /* YSMAccountInfo.h */,
+				F760207F14057D24007D0EF9 /* YSMAccountInfo.m */,
+				F760208214057D24007D0EF9 /* AccountInfoRepositoryFactory.h */,
+				F760208014057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.h */,
+				F760208114057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.m */,
+				F760208314057D24007D0EF9 /* AccountInfoRepository.h */,
+				F760208414057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.h */,
+				F760208514057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.m */,
+				F760208614057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.h */,
+				F760208714057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.m */,
+				F760208A14057D24007D0EF9 /* FilesystemPathGenerator.h */,
+				F760208814057D24007D0EF9 /* YSMFilesystemPathGenerator.h */,
+				F760208914057D24007D0EF9 /* YSMFilesystemPathGenerator.m */,
+			);
+			path = Account;
+			sourceTree = "<group>";
+		};
+		F760208B14057D24007D0EF9 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				4252A68714856CE100DADBC4 /* YSMErrors.h */,
+				F760208C14057D24007D0EF9 /* YSMAppInfo.h */,
+				F760208E14057D24007D0EF9 /* NSString+URLParamEncoding.h */,
+				F760208F14057D24007D0EF9 /* NSString+URLParamEncoding.m */,
+				F760208D14057D24007D0EF9 /* ErrorDescriptionGenerator.h */,
+				F760209014057D24007D0EF9 /* YSMErrorDescriptionGenerator.h */,
+				F760209114057D24007D0EF9 /* YSMErrorDescriptionGenerator.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		F760209214057D24007D0EF9 /* Connection */ = {
+			isa = PBXGroup;
+			children = (
+				F760209714057D24007D0EF9 /* ConnectionWrapperFactory.h */,
+				F760209514057D24007D0EF9 /* YSMConnectionWrapperFactory.h */,
+				F760209614057D24007D0EF9 /* YSMConnectionWrapperFactory.m */,
+				F760209814057D24007D0EF9 /* ConnectionWrapper.h */,
+				F760209314057D24007D0EF9 /* YSMConnectionWrapper.h */,
+				F760209414057D24007D0EF9 /* YSMConnectionWrapper.m */,
+			);
+			path = Connection;
+			sourceTree = "<group>";
+		};
+		F760209914057D24007D0EF9 /* LoginAndRefresh */ = {
+			isa = PBXGroup;
+			children = (
+				AED80179151907820005379D /* LoginFormatter.h */,
+				AED8017C151908980005379D /* YALoginFormatter.h */,
+				AED8017E151908D50005379D /* YALoginFormatter.m */,
+				424B5CBC1484370E0022DB7A /* LoginViewDelegate.h */,
+				F76020A414057D24007D0EF9 /* LoginServiceFactory.h */,
+				F76020A214057D24007D0EF9 /* YSMLoginServiceFactory.h */,
+				F76020A314057D24007D0EF9 /* YSMLoginServiceFactory.m */,
+				F76020A514057D24007D0EF9 /* LoginService.h */,
+				F76020A014057D24007D0EF9 /* YSMLoginService.h */,
+				F76020A114057D24007D0EF9 /* YSMLoginService.m */,
+				F76020AA14057D24007D0EF9 /* RefreshServiceFactory.h */,
+				F76020A814057D24007D0EF9 /* YSMRefreshServiceFactory.h */,
+				F76020A914057D24007D0EF9 /* YSMRefreshServiceFactory.m */,
+				F76020AB14057D24007D0EF9 /* RefreshService.h */,
+				F76020A614057D24007D0EF9 /* YSMRefreshService.h */,
+				F76020A714057D24007D0EF9 /* YSMRefreshService.m */,
+				F76020B014057D24007D0EF9 /* TokenRequesterFactory.h */,
+				F76020AE14057D24007D0EF9 /* YSMTokenRequesterFactory.h */,
+				F76020AF14057D24007D0EF9 /* YSMTokenRequesterFactory.m */,
+				F76020B114057D24007D0EF9 /* TokenRequester.h */,
+				F76020AC14057D24007D0EF9 /* YSMTokenRequester.h */,
+				F76020AD14057D24007D0EF9 /* YSMTokenRequester.m */,
+				F760209E14057D24007D0EF9 /* CookieCrumbRequesterFactory.h */,
+				F760209C14057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.h */,
+				F760209D14057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.m */,
+				F760209F14057D24007D0EF9 /* CookieCrumbRequester.h */,
+				F760209A14057D24007D0EF9 /* YSMCookieCrumbRequester.h */,
+				F760209B14057D24007D0EF9 /* YSMCookieCrumbRequester.m */,
+			);
+			path = LoginAndRefresh;
+			sourceTree = "<group>";
+		};
+		F76020E914057DF5007D0EF9 /* AccountTests */ = {
+			isa = PBXGroup;
+			children = (
+				F76020EA14057DF5007D0EF9 /* AccountInfoRepositoryWithFilesystemTests.h */,
+				F76020EB14057DF5007D0EF9 /* AccountInfoRepositoryWithFilesystemTests.m */,
+				F76020EC14057DF5007D0EF9 /* AccountInfoTests.h */,
+				F76020ED14057DF5007D0EF9 /* AccountInfoTests.m */,
+				F76020EE14057DF5007D0EF9 /* FilesystemPathGeneratorTests.h */,
+				F76020EF14057DF5007D0EF9 /* FilesystemPathGeneratorTests.m */,
+			);
+			path = AccountTests;
+			sourceTree = "<group>";
+		};
+		F76020F014057DF5007D0EF9 /* ConnectionTests */ = {
+			isa = PBXGroup;
+			children = (
+				F76020F114057DF5007D0EF9 /* ConnectionWrapperTests.h */,
+				F76020F214057DF5007D0EF9 /* ConnectionWrapperTests.m */,
+			);
+			path = ConnectionTests;
+			sourceTree = "<group>";
+		};
+		F76020F314057DF5007D0EF9 /* LoginServiceTests */ = {
+			isa = PBXGroup;
+			children = (
+				F76020F414057DF5007D0EF9 /* LoginServiceTests.h */,
+				F76020F514057DF5007D0EF9 /* LoginServiceTests.m */,
+			);
+			path = LoginServiceTests;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXHeadersBuildPhase section */
+		4229D20413F99D2600D49570 /* Headers */ = {
+			isa = PBXHeadersBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4252A69E1485A5D300DADBC4 /* AuthenticationErrorCreator.h in Headers */,
+				4252A69F1485A5D300DADBC4 /* YSMAuthenticationErrorCreator.h in Headers */,
+				F76020B514057D24007D0EF9 /* YSMAccountInfo.h in Headers */,
+				F76020B714057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.h in Headers */,
+				F76020B914057D24007D0EF9 /* AccountInfoRepositoryFactory.h in Headers */,
+				F76020BA14057D24007D0EF9 /* AccountInfoRepository.h in Headers */,
+				F76020BB14057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.h in Headers */,
+				F76020BD14057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.h in Headers */,
+				F76020BF14057D24007D0EF9 /* YSMFilesystemPathGenerator.h in Headers */,
+				F76020C114057D24007D0EF9 /* FilesystemPathGenerator.h in Headers */,
+				F76020C214057D24007D0EF9 /* YSMAppInfo.h in Headers */,
+				F76020C314057D24007D0EF9 /* ErrorDescriptionGenerator.h in Headers */,
+				F76020C414057D24007D0EF9 /* NSString+URLParamEncoding.h in Headers */,
+				F76020C614057D24007D0EF9 /* YSMErrorDescriptionGenerator.h in Headers */,
+				F76020C814057D24007D0EF9 /* YSMConnectionWrapper.h in Headers */,
+				F76020CA14057D24007D0EF9 /* YSMConnectionWrapperFactory.h in Headers */,
+				F76020CC14057D24007D0EF9 /* ConnectionWrapperFactory.h in Headers */,
+				F76020CD14057D24007D0EF9 /* ConnectionWrapper.h in Headers */,
+				F76020CE14057D24007D0EF9 /* YSMCookieCrumbRequester.h in Headers */,
+				F76020D014057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.h in Headers */,
+				F76020D214057D24007D0EF9 /* CookieCrumbRequesterFactory.h in Headers */,
+				F76020D314057D24007D0EF9 /* CookieCrumbRequester.h in Headers */,
+				F76020D414057D24007D0EF9 /* YSMLoginService.h in Headers */,
+				F76020D614057D24007D0EF9 /* YSMLoginServiceFactory.h in Headers */,
+				F76020D814057D24007D0EF9 /* LoginServiceFactory.h in Headers */,
+				F76020D914057D24007D0EF9 /* LoginService.h in Headers */,
+				F76020DA14057D24007D0EF9 /* YSMRefreshService.h in Headers */,
+				F76020DC14057D24007D0EF9 /* YSMRefreshServiceFactory.h in Headers */,
+				F76020DE14057D24007D0EF9 /* RefreshServiceFactory.h in Headers */,
+				F76020DF14057D24007D0EF9 /* RefreshService.h in Headers */,
+				F76020E014057D24007D0EF9 /* YSMTokenRequester.h in Headers */,
+				F76020E214057D24007D0EF9 /* YSMTokenRequesterFactory.h in Headers */,
+				F76020E414057D24007D0EF9 /* TokenRequesterFactory.h in Headers */,
+				F76020E514057D24007D0EF9 /* TokenRequester.h in Headers */,
+				F76020E614057D24007D0EF9 /* YSMSessionManager.h in Headers */,
+				F76020E814057D24007D0EF9 /* SessionManager.h in Headers */,
+				424B5CBD1484370E0022DB7A /* LoginViewDelegate.h in Headers */,
+				4252A68914856CE100DADBC4 /* YSMErrors.h in Headers */,
+				AED8017A151907820005379D /* LoginFormatter.h in Headers */,
+				AED8017D151908980005379D /* YALoginFormatter.h in Headers */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXHeadersBuildPhase section */
+
+/* Begin PBXNativeTarget section */
+		4229D20513F99D2600D49570 /* SessionManager */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4229D22C13F99D2600D49570 /* Build configuration list for PBXNativeTarget "SessionManager" */;
+			buildPhases = (
+				4229D20213F99D2600D49570 /* Sources */,
+				4229D20313F99D2600D49570 /* Frameworks */,
+				4229D20413F99D2600D49570 /* Headers */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SessionManager;
+			productName = SessionManager;
+			productReference = 4229D20613F99D2600D49570 /* libSessionManager.a */;
+			productType = "com.apple.product-type.library.static";
+		};
+		4229D21513F99D2600D49570 /* SessionManagerTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 4229D22F13F99D2600D49570 /* Build configuration list for PBXNativeTarget "SessionManagerTests" */;
+			buildPhases = (
+				4229D21113F99D2600D49570 /* Sources */,
+				4229D21213F99D2600D49570 /* Frameworks */,
+				4229D21313F99D2600D49570 /* Resources */,
+				4229D21413F99D2600D49570 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				4229D21F13F99D2600D49570 /* PBXTargetDependency */,
+			);
+			name = SessionManagerTests;
+			productName = SessionManagerTests;
+			productReference = 4229D21613F99D2600D49570 /* SessionManagerTests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		4229D1FD13F99D2500D49570 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0430;
+				ORGANIZATIONNAME = "Yahoo!";
+			};
+			buildConfigurationList = 4229D20013F99D2600D49570 /* Build configuration list for PBXProject "SessionManager" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = 4229D1FB13F99D2500D49570;
+			productRefGroup = 4229D20713F99D2600D49570 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				4229D20513F99D2600D49570 /* SessionManager */,
+				4229D21513F99D2600D49570 /* SessionManagerTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		4229D21313F99D2600D49570 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4229D22613F99D2600D49570 /* InfoPlist.strings in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		4229D21413F99D2600D49570 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		4229D20213F99D2600D49570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				4252A69A1485A42700DADBC4 /* YSMAuthenticationErrorCreator.m in Sources */,
+				F76020B614057D24007D0EF9 /* YSMAccountInfo.m in Sources */,
+				F76020B814057D24007D0EF9 /* YSMAccountInfoRepositoryFactory.m in Sources */,
+				F76020BC14057D24007D0EF9 /* YSMAccountInfoRepositoryWithFilesystem.m in Sources */,
+				F76020BE14057D24007D0EF9 /* YSMAccountInfoRepositoryWithKeychain.m in Sources */,
+				F76020C014057D24007D0EF9 /* YSMFilesystemPathGenerator.m in Sources */,
+				F76020C514057D24007D0EF9 /* NSString+URLParamEncoding.m in Sources */,
+				F76020C714057D24007D0EF9 /* YSMErrorDescriptionGenerator.m in Sources */,
+				F76020C914057D24007D0EF9 /* YSMConnectionWrapper.m in Sources */,
+				F76020CB14057D24007D0EF9 /* YSMConnectionWrapperFactory.m in Sources */,
+				F76020CF14057D24007D0EF9 /* YSMCookieCrumbRequester.m in Sources */,
+				F76020D114057D24007D0EF9 /* YSMCookieCrumbRequesterFactory.m in Sources */,
+				F76020D514057D24007D0EF9 /* YSMLoginService.m in Sources */,
+				F76020D714057D24007D0EF9 /* YSMLoginServiceFactory.m in Sources */,
+				F76020DB14057D24007D0EF9 /* YSMRefreshService.m in Sources */,
+				F76020DD14057D24007D0EF9 /* YSMRefreshServiceFactory.m in Sources */,
+				F76020E114057D24007D0EF9 /* YSMTokenRequester.m in Sources */,
+				F76020E314057D24007D0EF9 /* YSMTokenRequesterFactory.m in Sources */,
+				F76020E714057D24007D0EF9 /* YSMSessionManager.m in Sources */,
+				AED8017F151908D50005379D /* YALoginFormatter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		4229D21113F99D2600D49570 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				F76020FF14057E60007D0EF9 /* NSString+URLParamEncoding.m in Sources */,
+				F76020F814057DF5007D0EF9 /* AccountInfoRepositoryWithFilesystemTests.m in Sources */,
+				F76020F914057DF5007D0EF9 /* AccountInfoTests.m in Sources */,
+				F76020FA14057DF5007D0EF9 /* FilesystemPathGeneratorTests.m in Sources */,
+				F76020FB14057DF5007D0EF9 /* ConnectionWrapperTests.m in Sources */,
+				F76020FC14057DF5007D0EF9 /* LoginServiceTests.m in Sources */,
+				F76020FD14057DF5007D0EF9 /* SessionManagerTests.m in Sources */,
+				4252A6B814885FED00DADBC4 /* YSMErrorDomainTests.m in Sources */,
+				AED80180151908D50005379D /* YALoginFormatter.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		4229D21F13F99D2600D49570 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 4229D20513F99D2600D49570 /* SessionManager */;
+			targetProxy = 4229D21E13F99D2600D49570 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		4229D22413F99D2600D49570 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				4229D22513F99D2600D49570 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		157CC56314214976006DE7DB /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Distribution;
+		};
+		157CC56414214976006DE7DB /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SessionManager.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SessionManager/SessionManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Distribution;
+		};
+		157CC56514214976006DE7DB /* Distribution */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SessionManager/SessionManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Library/Headers\"";
+				INFOPLIST_FILE = "SessionManagerTests/SessionManagerTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../Library\"";
+				OTHER_LDFLAGS = (
+					"-L$(SYSTEM_DEVELOPER_DIR)/usr/lib",
+					"-lprofile_rt",
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Distribution;
+		};
+		4229D22A13F99D2600D49570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		4229D22B13F99D2600D49570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		4229D22D13F99D2600D49570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SessionManager.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SessionManager/SessionManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				"OTHER_CFLAGS[sdk=iphonesimulator*][arch=*]" = (
+					"-fprofile-arcs",
+					"-ftest-coverage",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Debug;
+		};
+		4229D22E13F99D2600D49570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SessionManager.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SessionManager/SessionManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		4229D23013F99D2600D49570 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SessionManager/SessionManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Library/Headers\"";
+				INFOPLIST_FILE = "SessionManagerTests/SessionManagerTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../Library\"";
+				"OTHER_CFLAGS[sdk=iphonesimulator*][arch=*]" = (
+					"-ftest-coverage",
+					"-fprofile-arcs",
+				);
+				OTHER_LDFLAGS = (
+					"-L$(SYSTEM_DEVELOPER_DIR)/usr/lib",
+					"-lprofile_rt",
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		4229D23113F99D2600D49570 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SessionManager/SessionManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Library/Headers\"";
+				INFOPLIST_FILE = "SessionManagerTests/SessionManagerTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../Library\"";
+				OTHER_LDFLAGS = (
+					"-L$(SYSTEM_DEVELOPER_DIR)/usr/lib",
+					"-lprofile_rt",
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Release;
+		};
+		A9AC6AD9150017600047680C /* Frankified */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				"ARCHS[sdk=iphoneos*]" = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
+				"ARCHS[sdk=iphonesimulator*]" = "$(ARCHS_STANDARD_32_BIT)";
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				SDKROOT = iphoneos;
+			};
+			name = Frankified;
+		};
+		A9AC6ADA150017600047680C /* Frankified */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				DSTROOT = /tmp/SessionManager.dst;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SessionManager/SessionManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "$(PROJECT_DIR)/**";
+				"OTHER_CFLAGS[sdk=iphonesimulator*][arch=*]" = (
+					"-fprofile-arcs",
+					"-ftest-coverage",
+				);
+				OTHER_LDFLAGS = (
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SKIP_INSTALL = YES;
+			};
+			name = Frankified;
+		};
+		A9AC6ADB150017600047680C /* Frankified */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(SDKROOT)/Developer/Library/Frameworks",
+					"$(DEVELOPER_LIBRARY_DIR)/Frameworks",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "SessionManager/SessionManager-Prefix.pch";
+				HEADER_SEARCH_PATHS = "\"$(SRCROOT)/../Library/Headers\"";
+				INFOPLIST_FILE = "SessionManagerTests/SessionManagerTests-Info.plist";
+				LIBRARY_SEARCH_PATHS = "\"$(SRCROOT)/../Library\"";
+				"OTHER_CFLAGS[sdk=iphonesimulator*][arch=*]" = (
+					"-ftest-coverage",
+					"-fprofile-arcs",
+				);
+				OTHER_LDFLAGS = (
+					"-L$(SYSTEM_DEVELOPER_DIR)/usr/lib",
+					"-lprofile_rt",
+					"-ObjC",
+					"-all_load",
+				);
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TEST_AFTER_BUILD = NO;
+				USER_HEADER_SEARCH_PATHS = "";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Frankified;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		4229D20013F99D2600D49570 /* Build configuration list for PBXProject "SessionManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4229D22A13F99D2600D49570 /* Debug */,
+				A9AC6AD9150017600047680C /* Frankified */,
+				4229D22B13F99D2600D49570 /* Release */,
+				157CC56314214976006DE7DB /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4229D22C13F99D2600D49570 /* Build configuration list for PBXNativeTarget "SessionManager" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4229D22D13F99D2600D49570 /* Debug */,
+				A9AC6ADA150017600047680C /* Frankified */,
+				4229D22E13F99D2600D49570 /* Release */,
+				157CC56414214976006DE7DB /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		4229D22F13F99D2600D49570 /* Build configuration list for PBXNativeTarget "SessionManagerTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				4229D23013F99D2600D49570 /* Debug */,
+				A9AC6ADB150017600047680C /* Frankified */,
+				4229D23113F99D2600D49570 /* Release */,
+				157CC56514214976006DE7DB /* Distribution */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 4229D1FD13F99D2500D49570 /* Project object */;
+}

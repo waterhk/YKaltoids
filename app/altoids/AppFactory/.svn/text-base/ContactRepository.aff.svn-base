@@ -1,0 +1,77 @@
+contactRepository
+{
+    contactStore;
+    addressBookObserver;
+    addressBookLoadCommandInstanceFactory;
+    addressBookLoader;
+    contactCommandQueue;
+    Subscribers:[NSMutableSet setWithCapacity:8];
+    CachingSubscribers:[NSMutableSet setWithCapacity:1];
+}
+
+contactLocator : CachingContactLocator @ ContactLocator
+{
+    nonCachingContactLocator;
+    contactRepository;
+    participantHandler;
+    addressHandler;
+    Cache:[NSMutableDictionary dictionaryWithCapacity:32];
+    AddressesMatchingNoContact:[NSMutableSet setWithCapacity:2];
+    MemoryWarningNotificationCenter:[NSNotificationCenter defaultCenter];
+}
+
+contactEndpointLocator
+{
+    phoneNumberNormalizer;
+}
+
+
+##
+## The components defined below are
+## INTENDED FOR INTERNAL USE ONLY (by ContactRepository)
+##
+## If you are tempted to use any of the components below, instead expose the functionality through the ContactRepository façade.
+##
+
+contactStore
+{
+}
+
+contactCommandQueue : CommandQueue @ CommandQueue
+{
+    :OperationQueue:[[NSOperationQueue alloc] init];
+    :maxConcurrentOperationCount:1;
+    operationCreator;
+}
+
+*addressBookLoadCommand @ Command
+{
+    :*Delegate:(id<AddressBookLoadCommandDelegate>);
+    addressBookLoader;
+    mainThreader;
+}
+
+addressBookLoader
+{
+    mutableArrayCreator;
+    SortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"compositeName" ascending:YES]];
+    timerInstanceFactory;
+}
+
+addressBookObserver
+{
+}
+
+nonCachingContactLocator : ContactLocator @ ContactLocator
+{
+    contactRepository;
+    participantHandler;
+    contactPredicateCreator;
+    addressHandler;
+    mutableArrayCreator;
+    mutableSetCreator;
+    arrayFilterer;
+    setFilterer;
+    timerInstanceFactory;
+    contactEndpointLocator;
+}

@@ -1,0 +1,37 @@
+{
+  "conversation":{
+    "cid":"86399691609964\/altoidsiosusr_us1@yahoo.com",
+    "summary":{
+      "totalMsgs":1,
+      "unreadMsgs":0
+    },
+    "messages":[
+      {
+        "message":{
+          "mid":"1_0_AKLPjkQAAMvQTpR+7gvuCQzka1E",
+          "flags":{
+            "isRead":true
+          },
+          "info":{
+            "subj":"testing again",
+            "date":1318354670,
+            "from":{
+              "email":"86399691609964\/altoidsiosusr_us1@yahoo.com",
+              "name":"Dummy Dummy"
+            },
+            "rcpts":"Dummy Dummy, Ro Dude"
+          },
+          "data":{
+            "parts":[
+              {
+                "partId":"text",
+                "subtype":"json",
+                "data":"{\"conversation\":{\"cid\":\"86399691609964\/altoidsiosusr_us1@yahoo.com\",\"mgrData\":{\"created\":1318371078,\"participants\":[{\"address\":\"altoidsiosusr_us1\",\"addressType\":\"mmc\",\"created\":1318354669,\"creator\":1,\"firstname\":\"Dummy\",\"imageURL\":\"http:\/\/l.yimg.com\/a\/i\/identity2\/profile_192c.png\",\"lastname\":\"Dummy\",\"pid\":\"900ab9801d2f9ecee03dcca2377e59bd\"},{\"address\":\"14083498896\",\"addressType\":\"mmc\",\"created\":1318354669,\"creator\":0,\"firstname\":\"Ro\",\"imageURL\":\"http:\/\/a323.yahoofs.com\/coreid\/4e8e4791i108fzws101sp2\/urM4bHI1aanv9TJsmIT3VtmqkDg-\/58\/t192.png?ciAa60QBDi2CZZQ_\",\"lastname\":\"Dude\",\"pid\":\"9f0e47c0cd7e274ec513943c4c8fa7e6\"}],\"sTopic\":\"testing again\"}},\"message\":{\"content\":\"testing again\"},\"operation\":\"conv-create\",\"sender\":{\"pid\":\"900ab9801d2f9ecee03dcca2377e59bd\"}}\n"
+              }
+            ]
+          }
+        }
+      }
+    ]
+  }
+}

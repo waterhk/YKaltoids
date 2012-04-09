@@ -1,0 +1,67 @@
+#
+# Sample App Factory Definition
+#
+
+<<foo/Foo.h>>
+
+<test_include.aff>
+
+yqlSearcher : YQLSearcher / libJudoChop
+{
+   yqlResponseParser;
+   SomeExternalDependency:[foo bar];
+   urlRequester;
+}
+
+yqlResponseParser : YQLResponseParser / libJudoChop
+{
+   jsonParser;
+}
+
+urlRequester : URLRequester ~ CdtURLRequester / libCdt
+{
+   urlConnectionFactory;
+}
+
+urlConnectionFactory : URLConnectionFactory ~ CdtURLConnectionFactory / libCdt
+{
+}
+
+*itemViewController
+{
+	:NibName:@"ItemVC";
+	:bundle:[NSBundle mainBundle];
+	yqlSearcher;
+	*Item:(NSData*);
+	*anotherParam:(NSString*);
+}
+
+*rootViewController
+{
+	:NibName:@"RootVC";
+	:bundle:[NSBundle mainBundle];
+	itemViewControllerInstanceFactory;
+   yqlSearcher;
+	jsonParser;
+}
+
+*productWithNoDependencies
+{
+}
+
+*productWithNoInitializerDependencies
+{
+	urlRequester;
+}
+
+blah
+{
+	itemViewControllerInstanceFactory;
+	productWithNoInitializerDependenciesInstanceFactory;
+	productWithNoDependenciesInstanceFactory;
+}
+
+!appDelegate
+{
+	:rootViewController;
+}

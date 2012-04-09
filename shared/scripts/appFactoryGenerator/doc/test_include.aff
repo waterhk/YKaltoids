@@ -1,0 +1,9 @@
+# this file should get included
+
+
+<< Bar.h>>
+
+jsonParser : JSONParser ~ SBJsonParser / libJudoChop
+{
+}
+

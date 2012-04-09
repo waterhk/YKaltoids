@@ -1,0 +1,1853 @@
+#
+# Altoids App Factory Definition
+#
+
+<<<AddressBook/ABRecord.h>>>
+<<YAParticipant.h>>
+%SBJson/SBJson.h%
+
+<ContactRepository.aff>
+<PhoneNumberNormalization.aff>
+
+!appDelegate
+{
+    :Window:[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
+    :windowBackgroundColor:[UIColor blackColor];
+    :userDefaults:[NSUserDefaults standardUserDefaults];
+    :tabBarController;
+    :loginViewController;
+    :userProfileViewControllerCreator;
+    :authInfoProvider;
+    :sessionManager;
+    :registrationStepCoordinatorFactory;
+    :registrationRepository;
+    :crumbServiceFactory;
+    :configurationHandler;
+    :appConfiguration;
+    :appReinitializer;
+    :uiAlertViewFactory;
+    :registrationErrorCreator;
+    :navigationControllerContainer;
+}
+
+appConfiguration
+{
+    configurationHandler;
+}
+
+appReinitializer
+{
+    managedObjectContextFactory;
+}
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~     Session Manager     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+sessionManager ~ YSMSessionManager
+{
+    accountInfoRepositoryFactory;
+    loginServiceFactory;
+    refreshServiceFactory;
+}
+
+accountInfoRepositoryFactory ~ YSMAccountInfoRepositoryFactory
+{
+    RepositoryTypes: RepoWithFilesystem;
+}
+
+loginServiceFactory ~ YSMLoginServiceFactory
+{
+    tokenRequesterFactory;
+    cookieCrumbRequesterFactory;
+}
+
+refreshServiceFactory ~ YSMRefreshServiceFactory
+{
+    cookieCrumbRequesterFactory;
+}
+
+tokenRequesterFactory ~ YSMTokenRequesterFactory
+{
+    connectionWrapperFactory;
+    errorDescriptionGenerator;
+}
+
+cookieCrumbRequesterFactory ~ YSMCookieCrumbRequesterFactory
+{
+    connectionWrapperFactory;
+    errorDescriptionGenerator;
+}
+
+connectionWrapperFactory ~ YSMConnectionWrapperFactory
+{
+}
+
+errorDescriptionGenerator ~ YSMErrorDescriptionGenerator
+{
+}
+
+loginFormatter
+{
+}
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~     Session Manager     ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+
+carrierInformationCreator
+{
+}
+
+uiAlertViewFactory : UIAlertViewFactory
+{
+}
+
+uiAlertViewSelectionDetector : UIAlertViewSelectionDetector
+{
+}
+
+uiAlertViewDismisser : UIAlertViewDismisser
+{
+}
+
+registrationTransientStateMutator
+{
+}
+
+registrationStepFactory
+{
+    uiAlertViewFactory;
+    uiAlertViewSelectionDetector;
+    uiAlertViewDismisser;
+    registrationTransientStateMutator;
+    registrationService;
+    carrierInformationCreator;
+    registrationConfiguration;
+    activityIndicatorOverlayInstanceFactory;
+}
+
+registrationConfiguration
+{
+    configurationHandler;
+}
+
+registrationStepSelector
+{
+    registrationStepFactory;
+}
+
+registrationStepCoordinatorFactory
+{
+    registrationStepSelector;
+    registrationTransientStateMutator;
+}
+
+*participantPickerViewController
+{
+    :*Delegate:(id<ParticipantPickerDelegate>);
+    contactRepository;
+    tableViewCellCreator;
+    contactAddressFormatter;
+    contactLocator;
+    participantInfoCreator;
+}
+
+*invalidTokenSelectorViewController
+{
+}
+
+tabBarController @ TabBarControllerAccessor
+{
+    navigationControllerContainer;
+    conversationListViewController;
+    contactsListViewController;
+    settingsListViewController;
+}
+
+navigationControllerContainer @ ViewControllerContainer
+{
+}
+
+dateFormatter @ DateFormatter
+{
+    dateCreator;
+    ShortStyleDateFormatter:[[NSDateFormatter alloc] init];
+    ShortTimeFormatter:[[NSDateFormatter alloc] init];
+    ShortDateFormatter:[[NSDateFormatter alloc] init];
+    DayHourFormatter:[[NSDateFormatter alloc] init];
+    MonthDayFormatter:[[NSDateFormatter alloc] init];
+}
+
+timestampFormatter
+{
+   dateFormatter;
+   dateCreator;
+}
+
+*participantInfoViewController
+{
+    :NibName:@"YAParticipantInfoView";
+    :bundle:[NSBundle mainBundle];
+    participantNameFormatter;
+    mutableArrayCreator;
+    addressHandleFormatter;
+    uiAlertViewDismisser;
+    uiAlertViewFactory;
+    uiAlertViewSelectionDetector;
+    conversationRepository;
+    contactLocator;
+    participantInfoCreator;
+    participantRepository;
+    imageScaler;
+    participantHandler;
+    personImageObserverCreator;
+    conversationComposeViewControllerInstanceFactory;
+    conversationMessageListViewControllerCreator;
+    navigationBarButtonItemRepository;
+    contactRepository;
+    :*Participant:(YAParticipant*);
+    :*managedObjectContext:(NSManagedObjectContext*);
+}
+
+*conversationDetailsViewController
+{
+    :NibName:@"YAConversationDetailsView";
+    :bundle:[NSBundle mainBundle];
+    participantDescriptionBuilder;
+    mutableArrayCreator;
+    participantNameFormatter;
+    participantHandler;
+    participantInfoViewControllerInstanceFactory;
+    conversationRepository;
+    conversationFetchRequestCreator;
+    conversationHandler;
+    SortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES]];
+    participantRepository;
+    participantInfoCreator;
+    imageScaler;
+    conversationLocator;
+    personImageObserverCreator;
+    navigationBarButtonItemRepository;
+    contactRepository;
+    contactPickerViewControllerInstanceFactory;
+    :*Conversation:(YAConversation *);
+    :*managedObjectContext:(NSManagedObjectContext*);
+}
+
+dataCreator
+{
+}
+
+imageCreator
+{
+}
+
+*participantImageLoaderCommand
+{
+    :*Participant:(YAParticipant *);
+    :*callbackData:(id);
+    :*delegate:(id<ParticipantImageLoaderCommandDelegate>);
+    participantHandler;
+    dataCreator;
+    imageCreator;
+    urlCreator;
+    contactLocator;
+    managedObjectContextFactory;
+    personImageHandler;
+}
+
+imageScaler
+{
+}
+
+tableViewCellCreator
+{
+}
+
+*conversationMessageListTableViewDataSource
+{
+    :*Conversation:(YAConversation *);
+    :*delegate:(id<ConversationMessageListTableViewDataSourceDelegate>);
+    conversationHandler;
+    conversationRepository;
+    managedObjectContextFactory;
+    participantHandler;
+    messagePredicateCreator;
+    conversationViewCellFactory;
+    contactRepository;
+    ConversationClassPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [YAConversation class]];
+    MessageSortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES]];
+    ParticipantClassPredicate:[NSPredicate predicateWithFormat:@"self isKindOfClass: %@", [YAParticipant class]];
+    NotificationCenter:[NSNotificationCenter defaultCenter];
+    mainThreader;
+    messageDeleter;
+}
+
+*conversationMessageListViewController @ MessageListViewController
+{
+    :*Conversation:(YAConversation *);
+    conversationRepository;
+    participantRepository;
+    imageScaler;
+    participantHandler;
+    messageHandler;
+    conversationViewCellsHeightConfiguration;
+    conversationMessageListTableViewDataSourceInstanceFactory;
+    pullUpRefreshViewInstanceFactory;
+    mainThreader;
+}
+
+userProfileViewController
+{
+}
+
+conversationMessageListViewControllerCreator
+{
+    NibName:@"YAConversationNewMessageListView";
+    NibBundle:[NSBundle mainBundle];
+    participantDescriptionBuilder;
+    conversationDetailsViewControllerInstanceFactory;
+    navigationBarButtonItemRepository;
+    contactRepository;
+    mutableArrayCreator;
+    
+    conversationMessageListViewControllerInstanceFactory;
+}
+
+conversationListDetailTextFormatter
+{
+    conversationHandler;
+    messageHandler;
+    participantNameFormatter;
+    attributedStringCreator;
+    attributedStringBuilder;
+}
+
+conversationListViewController @ ViewControllerAccessor
+{
+    fetchedResultsControllerFactory;
+    managedObjectContextFactory;
+    conversationRepository;
+    conversationComposeViewControllerInstanceFactory;
+    conversationFetchRequestCreator;
+    conversationMessageListViewControllerCreator;
+    navigationBarButtonItemRepository;
+    conversationListCellFactory;
+    contactRepository;
+    pullDownRefreshViewInstanceFactory;
+    mainThreader;
+}
+
+participantNameFormatter
+{
+    participantHandler;
+    addressHandler;
+    contactLocator;
+}
+
+personImageObserverCreator
+{
+    fetchRequestCreator;
+    SortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"photoURL" ascending:NO]];
+    fetchedResultsControllerFactory;
+}
+
+fetchedResultsControllerFactory
+{
+}
+
+stringSizeCalculator
+{
+}
+
+contactPredicateCreator
+{
+}
+
+participantDescriptionBuilder
+{
+    participantNameFormatter;
+    mutableArrayCreator;
+    stringSizeCalculator;
+    participantHandler;
+    SortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"participantID" ascending:YES], nil];
+}
+
+*conversationComposeViewController
+{
+    :NibName:@"YAConversationComposeView";
+    :bundle:[NSBundle mainBundle];
+    :*Delegate:(id<ConversationComposeDelegate>);
+    conversationRepository;
+    navigationControllerContainer;
+    participantNameFormatter;
+    participantDescriptionBuilder;
+    participantInfoCreator;
+    navigationBarButtonItemRepository;
+    contactPickerViewControllerInstanceFactory;
+    participantPickerViewControllerInstanceFactory;
+    invalidTokenSelectorViewControllerInstanceFactory;
+    registrationRepository;
+    managedObjectContextFactory;
+    smsAddressHandleFormatValidator;
+}
+
+contactsListViewController
+{
+    contactDetailViewControllerInstanceFactory;
+    contactsTableViewDataSourceInstanceFactory;
+    navigationBarButtonItemRepository;
+    :NibName:@"YAContactsListView";
+    :bundle:[NSBundle mainBundle];
+}
+
+*contactsTableViewDataSource
+{
+    :*Delegate:(id<ContactsTableViewDataSourceDelegate>);
+    contactRepository;
+    mutableDictionaryCreator;
+    mutableArrayCreator;
+    tableViewCellCreator;
+    SectionIndexTitles:kContactsListAlphabeticIndexes;
+    SectionIndexTitlesDelimiter:kContactsListAlphabeticIndexesDelimiter;
+    SectionIndexTitlesNonAlphabeticSection:kContactsListAlphabeticIndexesNumberSection;
+}
+
+*contactPickerViewController
+{
+    :*Delegate:(id<ContactPickerViewControllerDelegate>);
+    :*participantInfos:(NSSet*);
+    :*modal:(BOOL);
+    contactPickerTableViewDataSourceInstanceFactory;
+    navigationBarButtonItemRepository;
+    contactPickerDetailViewControllerInstanceFactory;
+    AlertViewFactory:uiAlertViewFactory;
+}
+
+*contactPickerTableViewDataSource
+{
+    :*Delegate:(id<ContactPickerTableViewDataSourceDelegate>);
+    :*participantInfos:(NSSet*);
+    MaxParticipants:kMaxParticipantsInConversation;
+    ContactRecordIDToSelectedContactEndpoints:[NSMutableDictionary dictionaryWithCapacity:kMaxParticipantsInConversation];
+    contactsTableViewDataSourceInstanceFactory;
+    contactLocator;
+    tableViewCellCreator;
+}
+
+smsAddressHandleFormatValidator : SMSAddressHandleFormatValidator
+{
+}
+
+*contactDetailViewController
+{
+    :NibName:@"YAContactDetailView";
+    :bundle:[NSBundle mainBundle];
+    :*Contact:(YAContact*);
+    contactDetailTableViewDataSourceInstanceFactory;
+    conversationComposeViewControllerInstanceFactory;
+    conversationMessageListViewControllerCreator;
+    participantInfoCreator;
+}
+
+*contactPickerDetailViewController
+{
+    :*Delegate:(id<ContactPickerDetailViewControllerDelegate>);
+    :*contact:(YAContact*);
+    :*selectedAddress:(YAContactAddress*);
+    :*immutableSelection:(BOOL);
+    contactDetailTableViewDataSourceInstanceFactory;
+    navigationBarButtonItemRepository;
+}
+
+*contactDetailTableViewDataSource
+{
+    :*Delegate:(id<ContactDetailTableViewDataSourceDelegate>);
+    :*contact:(YAContact*);
+    :*selectedAddress:(YAContactAddress*);
+    contactRepository;
+    tableViewCellCreator;
+    contactAddressFormatter;            # this will probably be moved to a contact detail table view cell class
+}
+
+contactAddressLabelFormatter
+{
+}
+
+settingsListViewController @ ViewControllerAccessor
+{
+    :NibName:@"YASettingsListView";
+    :bundle:[NSBundle mainBundle];
+    userProfileViewControllerCreator;
+    notificationSoundsViewController;
+    aboutViewController;
+    deactivateViewController;
+    userProfileRepository;
+    reportProblemViewController;
+    imageScaler;
+    CellOptionsHeaderTitles:[NSArray arrayWithObjects:kSettingsOptionsHeaderCellOneTitle,kSettingsOptionsHeaderCellTwoTitle,kSettingsOptionsHeaderCellThreeTitle,kSettingsOptionsHeaderCellFourTitle,nil];
+    textFormatter;
+    navigationBarButtonItemRepository;
+}
+
+aboutViewController @ ViewControllerAccessor
+{
+    :NibName:@"YAAboutViewController";
+    :bundle:[NSBundle mainBundle];
+    legalViewController;
+    CellTitles:[NSArray arrayWithObjects:kAboutCellOneTitle,kAboutCellTwoTitle,nil];
+}
+
+deactivateViewController @ ViewControllerAccessor
+{
+    :NibName:@"YADeactivateViewController";
+    :bundle:[NSBundle mainBundle];
+    CellTitles:[NSArray arrayWithObjects:kDeactivateCellOneTitle,nil];
+    uiAlertViewFactory;
+    uiAlertViewSelectionDetector;
+    deactivationCommandCreator;
+    mmcCommandQueue;
+    appConfiguration;
+    uiAlertViewFactory;
+}
+
+legalViewController @ ViewControllerAccessor
+{
+    :NibName:@"YALegalViewController";
+    :bundle:[NSBundle mainBundle];
+    legalWebPagesViewController;
+    CellTitles:[NSArray arrayWithObjects:kLegalCellOneTitle,kLegalCellTwoTitle,kLegalCellThreeTitle,nil];
+}
+ 
+legalWebPagesViewController @ ViewControllerAccessor
+{
+    :NibName:@"YALegalWebPagesViewController";
+    :bundle:[NSBundle mainBundle];
+}
+
+notificationSoundsViewController @ ViewControllerAccessor
+{
+    :NibName:@"YANotificationSoundsViewController";
+    :bundle:[NSBundle mainBundle];
+    CellTitles:[NSArray arrayWithObjects:kSoundsCellOneTitle,kSoundsCellTwoTitle,kSoundsCellThreeTitle,
+    kSoundsCellFourTitle, kSoundsCellFiveTitle, kSoundsCellSixTitle, kSoundsCellSevenTitle, kSoundsCellEightTitle, nil];
+}
+
+loginViewController
+{
+    :NibName:@"YALoginViewController";
+    :bundle:[NSBundle mainBundle];
+    sessionManager;
+    ActivityIndicatorView:[[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleGray];
+    authenticationErrorCreator;
+    networkActivityIndicatorStatusBarSpawner;
+    textFieldFormatter;
+    loginFormatter;
+}
+
+reportProblemViewController
+{
+    :NibName:@"YAReportProblemViewController";
+    :bundle:[NSBundle mainBundle];
+    navigationBarButtonItemRepository;
+    problemReporter;
+}
+
+authenticationErrorCreator ~ YSMAuthenticationErrorCreator
+{
+}
+
+userProfileViewControllerCreator
+{
+    userProfileRepository;
+    fetchedResultsControllerFactory;
+    managedObjectContextFactory;
+    NibName:@"YAUserProfileViewController";
+    Bundle:[NSBundle mainBundle];
+    registrationRepository;
+    fetchRequestCreator;
+    SortDescriptors:[NSArray arrayWithObject:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO]];
+    uiAlertViewFactory;
+    navigationBarButtonItemRepository;
+    userProfileImageScaler;
+    textFieldFormatter;
+    textFormatter;
+}
+
+profileErrorCreator
+{
+    errorCreator;
+}
+
+userEntityDescriptionCreator
+{
+}
+
+userProfileRepository
+{
+    userProfileHandler;
+    personImageRepository;
+    personImageHandler;
+    imageTransformer;
+    managedObjectContextFactory;
+    userProfileCommandFactory;
+    mmcCommandQueue;
+    profileErrorCreator;
+}
+
+userProfileHandler
+{
+    fetchRequestCreator;
+    userEntityDescriptionCreator;
+    profileErrorCreator;
+}
+
+userProfileCommandFactory
+{
+    fetchUserProfileCommandInstanceFactory;
+    mmcCommandInstanceFactory;
+    activityOverlayCommandInstanceFactory;
+    jsonParser;
+    userProfileErrorHandlerFactory;
+    userProfileResponseHandlerFactory;
+    userProfileURLRequestBuilderCreator;
+    userProfileUpdateNameWithPermissionRequestDataBuilder;
+    userProfileImageUpdateParsedJSONResponseHandlerCreator;
+    userProfileImageUpdateRequestDataBuilder;
+    profileCommandErrorHandlerCreator;
+    profileURLParametersCreator;
+    compositeCommandInstanceFactory;
+}
+
+userProfileRequestBuilder
+{
+    profileServerConfiguration;
+    authInfoProvider;
+}
+
+userProfileErrorHandlerFactory
+{
+    managedObjectContextFactory;
+    userProfileHandler;
+}
+
+userProfileResponseHandlerFactory ~ YAUserProfileParsedJSONResponseHandlerCreator @ UserProfileParsedJSONResponseHandlerCreator
+{
+    userProfileHandler;
+    userProfileErrorHandlerFactory;
+}
+
+userProfileURLRequestBuilderCreator
+{
+    userProfileUpdateURLWithURLParametersBuilderCreator;
+    userProfileImageUpdateURLWithURLParametersBuilderCreator;
+    urlRequestBuilderComposer;    
+}
+
+userProfileUpdateURLWithURLParametersBuilderCreator
+{
+    profileURLCreator;
+    profileRelativeURICreator;
+    managedObjectContextFactory;
+}
+
+userProfileUpdateNameWithPermissionRequestDataBuilder
+{
+    
+}
+
+userProfileImageUpdateRequestDataBuilder
+{
+    mutableDictionaryCreator;
+    imageScaler;
+    imageTransformer;
+}
+
+userProfileImageUpdateURLWithURLParametersBuilderCreator
+{
+    profileURLCreator;
+    profileRelativeURICreator;
+    managedObjectContextFactory;
+}
+
+userProfileImageUpdateRequestBodyWriter @ JSONWriter
+{
+    jsonWriter;
+}
+
+userProfileImageUpdateParsedJSONResponseHandlerCreator
+{
+    managedObjectContextFactory;
+    userProfileHandler;
+}
+
+profileURLCreator
+{
+    urlCreator;
+    profileServerConfiguration;
+    authInfoProvider;
+}
+
+profileRelativeURICreator
+{
+    userProfileHandler;
+}
+
+profileURLParametersCreator
+{
+
+}
+
+profileServerConfiguration
+{
+    configurationHandler;
+}
+
+profileCommandErrorHandlerCreator @ CommandErrorHandlerCreator
+{
+    profileErrorCreator;
+}
+
+configurationHandler
+{
+    BundleContainingDefaultSettings:[NSBundle mainBundle];
+}
+
+userProfileResponseParser
+{
+    jsonParser;
+}
+
+validationErrorBuilder
+{
+}
+
+conversationValidatorFactory
+{
+    validationErrorBuilder;
+}
+
+conversationHandler
+{
+    conversationValidatorFactory;
+}
+
+managedObjectContextFactory
+{
+    PersistentStoreType:NSSQLiteStoreType;
+    BundleContainingManagedObjectModel:[NSBundle mainBundle];
+    persistentStoreURLGenerator;
+}
+
+persistentStoreURLGenerator
+{
+}
+
+addressHandler
+{
+}
+
+addressErrorCreator
+{
+    errorCreator;
+}
+
+addressRepository
+{
+    addressHandler;
+    addressErrorCreator;
+}
+
+participantHandler
+{
+}
+
+participantErrorCreator
+{
+    errorCreator;
+}
+
+participantUpdater 
+{
+    participantTransientIDFormatter;
+    participantHandler;
+}
+
+participantCreator
+{
+    addressRepository;
+    participantHandler;
+    participantErrorCreator;
+    participantUpdater;
+}
+
+participantRepository
+{
+    participantHandler;
+    addressRepository;
+    participantCommandFactory;
+    mmcCommandQueue;
+    participantImageLoaderCommandInstanceFactory;
+    imageTransformer;
+    imageScaler;
+    personImageHandler;
+    personImageRepository;
+    participantErrorCreator;
+    mutableDictionaryCreator;
+    mutableSetCreator;
+    participantUpdater;
+    participantCreator;
+    userProfileRepository;
+    userProfileHandler;
+}
+
+imageTransformer
+{
+}
+
+personImageHandler
+{
+}
+
+personImageRepository
+{
+    personImageHandler;
+    fetchRequestCreator;
+    personImagePredicateCreator;
+    participantErrorCreator;
+}
+
+personImagePredicateCreator
+{
+}
+
+messageHandler
+{
+}
+
+messageErrorCreator
+{
+    errorCreator;
+}
+
+messageDeleter
+{
+    messageFetchRequestCreator;
+    messageHandler;
+    messageErrorCreator;
+}
+
+messageUpdater
+{
+    messageHandler;
+}
+
+messageRepository
+{
+    messageHandler;
+    messageDeleter;
+    participantRepository;
+    messageErrorCreator;
+    messageUpdater;
+}
+
+mutableArrayCreator
+{
+}
+
+mutableDictionaryCreator
+{
+}
+
+attributedStringCreator
+{
+}
+
+attributedStringBuilder
+{
+}
+
+mutableSetCreator
+{
+}
+
+fetchRequestCreator
+{
+}
+
+conversationEntityDescriptionCreator
+{
+}
+
+conversationPredicateCreator
+{
+}
+
+conversationFetchRequestCreator
+{
+    fetchRequestCreator;
+    conversationEntityDescriptionCreator;
+    conversationPredicateCreator;
+    SortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:NO], [NSSortDescriptor sortDescriptorWithKey:@"status" ascending:NO], nil];
+}
+
+messageEntityDescriptionCreator
+{
+}
+
+messagePredicateCreator
+{
+}
+
+messageFetchRequestCreator
+{
+    fetchRequestCreator;
+    messageEntityDescriptionCreator;
+    messagePredicateCreator;
+    SortDescriptors:[NSArray arrayWithObjects:[NSSortDescriptor sortDescriptorWithKey:@"timestamp" ascending:YES], [NSSortDescriptor sortDescriptorWithKey:@"status" ascending:NO], nil];
+}
+
+systemMessageDescriptionBuilderCreator
+{
+    participantNameFormatter;
+    mutableArrayCreator;
+    participantDescriptionBuilder;
+}
+
+conversationLocator
+{
+    conversationFetchRequestCreator;
+}
+
+conversationGapPlaceholderClearer
+{
+    conversationHandler;
+    conversationPredicateCreator;
+    mutableArrayCreator;
+}
+
+conversationListToDictionaryTransformer
+{
+    mutableDictionaryCreator;
+    conversationHandler;
+}
+
+conversationGapDetector
+{
+    conversationHandler;
+}
+
+conversationDeleter
+{
+    conversationHandler;
+    conversationFetchRequestCreator;
+}
+
+messageGapPlaceholderClearer
+{
+    messageHandler;
+    mutableSetCreator;
+}
+
+messageGapDetector
+{
+    messageHandler;
+}
+
+participantAggregator
+{
+    mutableDictionaryCreator;
+}
+
+addressMetaDataUpdater
+{
+    addressMetaDataHandler;
+    addressMetaDataRepository;
+    addressTypeDetector;
+    participantAggregator;
+}
+
+conversationRepository
+{
+    conversationHandler;
+    managedObjectContextFactory;
+    participantRepository;
+    messageRepository;
+    userProfileRepository;
+    registrationFetcher;
+    conversationCommandFactory;
+    mmcCommandQueue;
+    mutableArrayCreator;
+    conversationLocator;
+    conversationGapPlaceholderClearer;
+    conversationListToDictionaryTransformer;
+    conversationGapDetector;
+    conversationDeleter;
+    messageGapPlaceholderClearer;
+    messageGapDetector;
+    messageDeleter;
+    messageHandler;
+    messageCreator;
+    participantHandler;
+    conversationErrorCreator;
+    participantErrorCreator;
+    messageStatusUpdater;
+    addressMetaDataUpdater;    
+}
+
+inMemoryTransport @ Transport
+{
+}
+
+serverTransport @ Transport
+{
+    
+    networkActivityIndicatorStatusBarSpawner;
+}
+
+transportFactory
+{
+    inMemoryTransport;
+    serverTransport;
+}
+
+urlRequestCreator : URLRequestCreator
+{
+}
+
+jsonParser : JSONParser
+{
+    SBJSONParser:[[SBJsonParser alloc] init];
+}
+
+jsonParserForMutableResult : JSONParserForMutableResult
+{
+    SBJSONParser:[[SBJsonParser alloc] init];
+}
+
+conversationMessageListJSONParser
+{
+    jsonParserForMutableResult;
+}
+
+jsonWriter : JSONWriter
+{
+    SBJSONWriter:[[SBJsonWriter alloc] init];
+}
+
+mmcParticipantToParticipantInfoTranslator : MMCParticipantToParticipantInfoTranslator
+{
+    addressInfoCreator;
+}
+
+mmcMessageToMessageInfoTranslator : MMCMessageToMessageInfoTranslator
+{
+    mmcParticipantToParticipantInfoTranslator;
+    systemMessageDescriptionBuilderCreator;
+}
+
+arrayFilterer
+{
+    mutableArrayCreator;
+}
+
+setFilterer
+{
+    mutableSetCreator;
+}
+
+mmcConversationToConversationInfoTranslator : MMCConversationToConversationInfoTranslator
+{
+    mmcParticipantToParticipantInfoTranslator;
+    mmcMessageToMessageInfoTranslator;
+    mutableArrayCreator;
+    mutableDictionaryCreator;
+    arrayFilterer;
+}
+
+mmcConversationReplyToConversationReplyInfoTranslator : MMCConversationReplyToConversationReplyInfoTranslator
+{
+}
+
+conversationListParsedJSONResponseHandlerCreator
+{
+    mmcConversationToConversationInfoTranslator;
+    conversationListCommandErrorHandler;
+    ParsedJSONResponseFilterer : [self conversationListParsedJSONResponseFilterer];
+}
+
+mmcURLParametersCreator : MMCURLParametersCreator
+{
+    conversationHandler;
+    messageHandler;
+    urlParameterEncoder;
+}
+
+addressTypeDetector
+{
+    addressHandler;
+    InvertedDecimalDigitCharacterSet:[[NSCharacterSet decimalDigitCharacterSet] invertedSet];
+}
+
+addressNormalizer
+{
+    addressTypeDetector;
+    smsAddressNormalizer;
+}
+
+smsAddressNormalizer : SMSAddressNormalizer @ AddressNormalizer
+{
+    addressHandler;
+    phoneNumberNormalizer;
+}
+
+addressHandleFormatter
+{
+    addressTypeDetector;
+    addressNormalizer;
+    smsAddressHandleFormatter;
+}
+
+smsAddressHandleFormatter : SMSAddressHandleFormatter @ AddressHandleFormatter
+{
+    addressHandler;
+}
+
+emailAddressHandleFormatter : EmailAddressHandleFormatter @ AddressHandleFormatter
+{
+    addressHandler;
+}
+
+participantTransientIDFormatter
+{
+    addressHandleFormatter;
+    participantHandler;
+}
+
+participantRequestDataBuilder
+{
+    participantHandler;
+    mutableDictionaryCreator;
+    participantTransientIDFormatter;
+}
+
+participantsRequestDataBuilder
+{
+    participantRequestDataBuilder;
+    mutableArrayCreator;
+}
+
+conversationCreateRequestDataBuilder
+{
+    participantsRequestDataBuilder;
+    conversationHandler;
+    messageHandler;
+    mutableDictionaryCreator;
+    participantRequestDataBuilder;
+}
+
+conversationCreateParsedJSONResponseHandlerCreator
+{
+    conversationHandler;
+    mmcConversationToConversationInfoTranslator;
+    mmcConversationErrorDetector;
+    mmcErrorCreator;
+    conversationErrorHandlerFactory;
+}
+
+urlRequestMethodGetBuilder : URLRequestMethodGetBuilder
+{
+}
+
+urlRequestMethodPostBuilder : URLRequestMethodPostBuilder
+{
+}
+
+urlRequestMethodPutBuilder : URLRequestMethodPutBuilder
+{
+}
+
+urlRequestStandardHeadersBuilder : URLRequestStandardHeadersBuilder
+{
+    authInfoProvider;
+}
+
+urlRequestJSONPayloadHeadersBuilder : URLRequestJSONPayloadHeadersBuilder
+{
+    urlRequestStandardHeadersBuilder;
+}
+
+urlRequestMultipartPayloadHeadersBuilder : URLRequestMultipartPayloadHeadersBuilder
+{
+    urlRequestStandardHeadersBuilder;
+}
+
+urlRequestBodyBuilder : URLRequestBodyBuilder
+{
+}
+
+urlRequestBuilderComposer : URLRequestBuilderComposer
+
+{
+    urlRequestMethodGetBuilder;
+    urlRequestMethodPostBuilder;
+    urlRequestMethodPutBuilder;
+    urlRequestStandardHeadersBuilder;
+    urlRequestJSONPayloadHeadersBuilder;
+    urlRequestMultipartPayloadHeadersBuilder;
+    urlRequestBodyBuilder;
+}
+
+urlParameterEncoder : URLParameterEncoder
+{
+}
+
+mmcURLParameterEncoder : MMCURLParameterEncoder
+{
+    urlParameterEncoder;
+}
+
+mmcRelativeURICreator : MMCRelativeURICreator
+{
+    conversationHandler;
+    mmcURLParameterEncoder;
+}
+
+conversationListURLWithURLParametersBuilder
+{
+    mmcURLCreator;
+    mmcRelativeURICreator;
+}
+
+conversationCreateURLWithURLParametersBuilder
+{
+    mmcURLCreator;
+    mmcRelativeURICreator;
+}
+
+conversationMessageListURLWithURLParametersBuilderCreator
+{
+    mmcURLCreator;
+    mmcRelativeURICreator;
+    managedObjectContextFactory;
+}
+
+conversationManagementURLWithURLParametersBuilderCreator
+{
+    mmcURLCreator;
+    mmcRelativeURICreator;
+    managedObjectContextFactory;
+}
+
+conversationReplyURLWithURLParametersBuilderCreator
+{
+    mmcURLCreator;
+    mmcRelativeURICreator;
+    managedObjectContextFactory;
+}
+
+conversationURLRequestBuilderCreator
+{
+    conversationListURLWithURLParametersBuilder;
+    conversationCreateURLWithURLParametersBuilder;
+    conversationMessageListURLWithURLParametersBuilderCreator;
+    conversationManagementURLWithURLParametersBuilderCreator;
+    conversationReplyURLWithURLParametersBuilderCreator;
+    urlRequestBuilderComposer;
+}
+
+conversationMessageListParsedJSONResponseHandlerCreator
+{
+    mmcConversationToConversationInfoTranslator;
+    ParsedJSONResponseFilterer : [self conversationMessageListParsedJSONResponseFilterer];
+}
+
+conversationReplyRequestDataBuilder
+{
+}
+
+conversationReplyParsedJSONResponseHandlerCreator
+{
+    mmcConversationReplyToConversationReplyInfoTranslator;
+}
+
+conversationEditRequestDataBuilder
+{
+    mutableDictionaryCreator;
+    participantsRequestDataBuilder;
+}
+
+conversationFlagMessagesRequestDataBuilder
+{
+    mutableDictionaryCreator;
+}
+
+conversationEditParsedJSONResponseHandlerCreator
+{
+    mmcConversationToConversationInfoTranslator;
+}
+
+
+
+mmcConversationErrorDetector : MMCConversationErrorDetector
+{
+}
+
+mmcErrorCreator : MMCErrorCreator
+{
+    errorCreator;
+}
+
+conversationListCommandErrorHandler
+{
+    mmcConversationErrorDetector;
+    mmcErrorCreator;
+    conversationErrorCreator;
+    conversationLocator;
+    conversationHandler;
+    managedObjectContextFactory;
+}
+
+commandErrorCreator
+{
+    errorCreator;
+}
+
+commandErrorHandlerCreator
+{
+    commandErrorCreator;
+}
+
+conversationErrorHandlerFactory
+{
+    managedObjectContextFactory;
+    conversationHandler;
+    messageHandler;
+    messageLocator;
+}
+
+messageLocator
+{
+    messageFetchRequestCreator;
+}
+
+conversationCommandFactory
+{
+    mmcCommandInstanceFactory;
+    activityOverlayCommandInstanceFactory;
+    transactionCommandInstanceFactory;
+    conversationHandler;
+    jsonParser;
+    conversationMessageListJSONParser;
+    conversationListParsedJSONResponseHandlerCreator;
+    mmcURLParametersCreator;
+    conversationCreateRequestDataBuilder;
+    conversationCreateParsedJSONResponseHandlerCreator;
+    conversationURLRequestBuilderCreator;
+    conversationMessageListParsedJSONResponseHandlerCreator;
+    conversationReplyRequestDataBuilder;
+    conversationReplyParsedJSONResponseHandlerCreator;
+    conversationEditRequestDataBuilder;
+    conversationEditParsedJSONResponseHandlerCreator;
+    conversationFlagMessagesRequestDataBuilder;
+    messageHandler;
+    commandErrorHandlerCreator;
+    conversationErrorHandlerFactory;
+}
+
+addressInfoCreator
+{
+    addressHandler;
+    addressTypeDetector;
+    phoneNumberNormalizer;
+}
+
+participantInfoCreator
+{
+    addressInfoCreator;
+    userProfileRepository;
+    registrationFetcher;
+}
+
+participantCommandFactory
+{
+    transportFactory;
+    participantHandler;
+    participantRequestBuilderFactory;
+    participantResponseParserFactory;
+}
+
+participantRequestBuilderFactory @ ParticipantRequestBuilder
+{
+    serverConfiguration;
+}
+
+serverConfiguration
+{
+    configurationHandler;
+}
+
+participantResponseParserFactory @ ParticipantResponseParser
+{
+}
+
+mmcCommandQueue : CommandQueue @ CommandQueue
+{
+    :OperationQueue:[[NSOperationQueue alloc] init];
+    :maxConcurrentOperationCount:1;
+    operationCreator;
+}
+
+*mmcCommand : MMCCommand @ Command
+{
+    urlRequestCreator;
+    jsonWriter;
+    transportFactory;
+    commandErrorCreator;
+    :*URLRequestBuilder:(id<URLRequestBuilder>);
+    :*urlRequestParameters:(NSDictionary*);
+    :*urlRequestData:(NSDictionary*);
+    :*jsonParser:(id<JSONParser>);
+    :*parsedJSONResponseHandler:(id<ParsedJSONResponseHandler>);
+    :*commandErrorHandler:(id<CommandErrorHandler>);
+}
+
+*transactionCommand
+{
+    commandErrorCreator;
+    :*Command:(id<Command>);
+    :*delegate:(id<TransactionCommandDelegate>);
+}
+
+*activityOverlayCommand @ Command
+{
+    activityIndicatorOverlayInstanceFactory;
+    commandErrorCreator;
+    :*Command:(id<Command>);
+    :*view:(UIView*);
+}
+
+*fetchUserProfileCommand : FetchUserProfileCommand @ Command
+{
+    managedObjectContextFactory;
+    transportFactory;
+    userProfileHandler;
+    personImageHandler;
+    userProfileRequestBuilder;
+    userProfileResponseParser;
+    urlCreator;
+    dataCreator;
+    imageTransformer;
+    :*User:(YAUser*);
+}
+
+operationCreator
+{
+}
+
+authInfoProvider
+{
+}
+
+registrationService
+{
+    registrationCommandFactory;
+    mmcCommandQueue;
+}
+
+registrationErrorCreator
+{
+    errorCreator;
+}
+
+registrationFetcher
+{
+    registrationErrorCreator;
+}
+
+registrationRepository
+{
+    managedObjectContextFactory;
+    registrationFetcher;
+    registrationErrorCreator;
+    registrationHandler;
+    registrationInfoCommandCreator;
+    mmcCommandQueue;
+}
+
+registrationHandler
+{
+}
+
+registrationCommandFactory
+{
+    transportFactory;
+    registrationRequestBuilderFactory;
+    registrationResponseParserFactory;
+}
+
+registrationRequestBuilderFactory @ RegistrationRequestBuilder
+{
+    serverConfiguration;
+    authInfoProvider;
+}
+
+registrationResponseParserFactory @ RegistrationResponseParser
+{
+    errorResponseParser;
+}
+
+errorResponseParser @ ErrorResponseParser
+{
+}
+
+crumbServiceFactory
+{
+    serverConfiguration;
+    profileServerConfiguration;
+}
+
+urlCreator : URLCreator @ URLCreator
+{
+}
+
+mmcURLCreator : MMCURLCreator @ MMCURLCreator
+{
+    urlCreator;
+    serverConfiguration;
+    authInfoProvider;
+}
+
+errorCreator
+{
+    mutableDictionaryCreator;
+}
+
+conversationErrorCreator
+{
+    errorCreator;
+}
+
+arraySplitter
+{
+    mutableArrayCreator;
+}
+
+messageListToArrayOfMessageIDsConverter
+{
+    mutableArrayCreator;
+    messageHandler;
+}
+
+messageStatusUpdater
+{
+    mmcCommandQueue;
+    arraySplitter;
+    conversationCommandFactory;
+    messageListToArrayOfMessageIDsConverter;
+    messageHandler;
+}
+
+navigationBarButtonItemRepository
+{
+    buttonCreator;
+    barButtonItemCreator;
+}
+
+buttonCreator
+{
+}
+
+barButtonItemCreator
+{
+}
+
+userProfileImageScaler
+{
+    imageScaler;
+}
+
+*compositeCommand @ Command
+{
+    :*Commands:(NSArray *);
+}
+
+predicateCreator
+{
+    mutableArrayCreator;
+}
+
+entityDescriptionCreator
+{
+}
+
+fetchRequestRepository
+{
+    entityDescriptionCreator;
+    fetchRequestCreator;
+    predicateCreator;
+}
+
+addressMetaDataHandler
+{
+}
+
+addressMetaDataRepository
+{
+    entityDescriptionCreator;
+    fetchRequestRepository;
+    addressMetaDataHandler;
+    mutableDictionaryCreator;
+}
+
+registrationInfoResponseParser
+{
+    mutableDictionaryCreator;
+}
+
+registrationInfoAddressMetaDataUpdater
+{
+    addressMetaDataHandler;
+    addressMetaDataRepository;
+    registrationInfoResponseParser;
+}
+
+*registrationInfoParsedJSONResponseHandler
+{
+    :*Delegate:(id<RegistrationInfoCommandDelegate>);
+    addressMetaDataHandler;
+    addressMetaDataRepository;
+    managedObjectContextFactory;
+    mutableArrayCreator;
+    mutableDictionaryCreator;
+    registrationInfoAddressMetaDataUpdater;
+    registrationInfoResponseParser;
+}
+
+registrationInfoRequestDataBuilder
+{
+    mutableArrayCreator;
+    mutableDictionaryCreator;
+}
+
+registrationURLCreator
+{
+    authInfoProvider;
+    serverConfiguration;
+    urlCreator;
+}
+
+registrationRelativeURICreator
+{
+}
+
+registrationInfoURLWithURLParametersBuilder
+{
+    registrationURLCreator;
+    registrationRelativeURICreator;
+}
+
+registrationInfoURLRequestBuilderCreator
+{
+    urlRequestBuilderComposer;
+    registrationInfoURLWithURLParametersBuilder;
+}
+
+registrationInfoErrorHandler
+{
+}
+
+registrationInfoCommandCreator
+{
+    mmcCommandInstanceFactory;
+    jsonParser;
+    commandErrorHandlerCreator;
+    registrationInfoErrorHandler;
+    registrationInfoParsedJSONResponseHandlerInstanceFactory;
+    registrationInfoRequestDataBuilder;
+    registrationInfoURLRequestBuilderCreator;
+    UrlRequestParameters:[NSDictionary dictionaryWithObject:@"sms,mmc" forKey:@"numberServices"];
+}
+
+deactivationCommandCreator
+{
+    mmcCommandInstanceFactory;
+    jsonParser;
+    commandErrorHandlerCreator;
+    deactivationInfoErrorHandler;
+    deactivationInfoParsedJSONResponseHandler;
+    deactivationInfoURLRequestBuilderCreator;
+    mmcURLParametersCreator;
+    transactionCommandInstanceFactory;
+}
+
+deactivationInfoErrorHandler
+{
+}
+
+deactivationInfoParsedJSONResponseHandler
+{
+}
+
+deactivationRelativeURICreator
+{
+}
+
+
+deactivationInfoURLRequestBuilderCreator
+{
+    urlRequestBuilderComposer;
+    deactivationInfoURLWithURLParametersBuilder;
+}
+
+deactivationInfoURLWithURLParametersBuilder
+{
+    registrationURLCreator;
+    deactivationRelativeURICreator;
+}
+
+*conversationListCell
+{
+    conversationListDetailTextFormatter;
+    timestampLabelFormatter;
+    conversationTitleFormatter;
+}
+
+*conversationListSystemMessageCell @ ConversationListCell
+{
+    conversationListDetailTextFormatter;
+    timestampLabelFormatter;
+    conversationTitleFormatter;
+}
+
+conversationListCellFactory
+{
+    conversationListCellInstanceFactory;
+    conversationListSystemMessageCellInstanceFactory;
+}
+
+networkActivityIndicatorStatusBar 
+{ 
+    App:[UIApplication sharedApplication]; 
+}
+
+*activityIndicatorOverlay
+{
+   mainThreader;
+}
+
+networkActivityIndicatorStatusBarSpawner
+{
+   networkActivityIndicatorStatusBar;
+}
+
+textFieldFormatter
+{
+}
+
+mainThreader : Threader @ Threader
+{
+    Thread:[NSThread mainThread];
+}
+
+*timer
+{
+    dateCreator;
+    Accumulators:[NSMutableDictionary dictionaryWithCapacity:8];
+}
+
+dateCreator
+{
+}
+
+localeRepository
+{
+}
+
+contactAddressFormatter
+{
+    contactAddressLabelFormatter;
+}
+
+problemReporter
+{
+    authInfoProvider;
+    reportProblemWebService;
+    reportProblemWebServiceParameters;
+    networkActivityIndicatorStatusBarSpawner;
+}
+
+reportProblemWebService
+{
+}
+
+reportProblemWebServiceParameters
+{
+    urlParameterEncoder;
+}
+
+*conversationViewMessageCell @ ConversationViewCell
+{
+    participantNameFormatter;
+    participantRepository;
+    imageScaler;
+    timestampLabelFormatter;
+}
+conversationViewCellFactory
+{
+    conversationViewMessageCellInstanceFactory;
+    messageHandler;
+}
+
+timestampLabelFormatter
+{
+    conversationHandler;
+    timestampFormatter;
+    attributedStringCreator;
+    attributedStringBuilder;
+}
+conversationTitleFormatter
+{
+    participantDescriptionBuilder;
+    attributedStringCreator;
+    attributedStringBuilder;
+}
+
+*pullUpRefreshView : PullUpRefreshView ~ YAPullToRefreshView @ PullToRefreshView
+{
+    :*Frame:(CGRect);
+    :isPullDown:NO;
+    :withDirectionText:kRefreshPullUpToUpdateMessage;
+    
+    dateFormatter;
+}
+
+*pullDownRefreshView : PullDownRefreshView ~ YAPullToRefreshView @ PullToRefreshView
+{
+    :*Frame:(CGRect);
+    :isPullDown:YES;
+    :withDirectionText:kRefreshPullDownToUpdateMessage;
+    
+    dateFormatter;
+}
+
+conversationListParsedJSONResponseFilterer
+{
+    parsedJSONResponseRegexFilterer;
+}
+conversationMessageListParsedJSONResponseFilterer
+{
+    parsedJSONResponseRegexFilterer;
+}
+parsedJSONResponseRegexFilterer
+{
+}
+textFormatter
+{
+}
+conversationViewCellsHeightConfiguration
+{
+}
+messageCreator
+{
+    :messageHandler;
+}

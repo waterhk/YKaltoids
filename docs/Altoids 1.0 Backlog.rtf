@@ -1,0 +1,566 @@
+{\rtf1\ansi\ansicpg1252\cocoartf1138\cocoasubrtf320
+{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fswiss\fcharset0 ArialMT;}
+{\colortbl;\red255\green255\blue255;\red64\green128\blue0;\red255\green128\blue0;\red23\green66\blue156;
+\red221\green109\blue29;\red255\green0\blue0;}
+{\info
+{\author Andreas Nordin}}\margl1440\margr1440\vieww20820\viewh17940\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\f0\b\fs28 \cf0 Altoids Backlog\
+
+\b0 2012.02.01 - v2\
+\
+
+\b Done Android\
+
+\b0 - UX: Vibrate on new messages in conv view\
+- UX: Update sign in screen to promote Sign up more\
+- Feat: Promote sign up\
+- Feat: Share text from OS\
+- Feat: Create conv from contacts\
+- Feat: Clickable URLs\
+- Feat: Copy text\
+\
+
+\b Android Sprint 20
+\b0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - Feat: Create contact when adding participant to ongoing conversation > {\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/anrd/user-stories/create-contact-in-ongoing-conversation/hub-create-contact-in-ongoing-conversation.pdf?revision=61715&view=co"}}{\fldrslt Mock}}\
+- Feat: Add participant as contact from Participant Info screen > {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/CommsDesign/AltoidsAndroidConversationView#Conversation_Details_Add_Partici"}}{\fldrslt \cf0 Mock}}\cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 \
+iOS Sprint 10\
+
+\b0 - Investigate iOS push (Stephane / Ronak)\
+- Investigate how iOS number provisioning flow can be simplified with less intimidating SMS text\
+- Investigate lightweight reg + upgrade (Stephane)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - Feat: Show which contacts isMMC users\cf0 \
+\cf2 - Compose: Land on conversation view after compose - Size 1\
+- UX: Compose: Inserting delimiter and tapping add participant should turn name/number into lozenge - {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/show_bug.cgi?id=5203705"}}{\fldrslt bug}} - Size: 3\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 \
+\
+..::EPICS for iOS Alpha::..
+\b0 \
+
+\b  1. Infrastructure ::..
+\b0 \
+    - Push\
+    - [Stretch] Tracking\
+
+\b 2. Features ::.. 
+\b0 \
+    - Report a problem\
+    - Compose, reply error handling\
+    - Hub flag\
+    - Contacts performance\
+    - Leave conversation\
+    - Add non-contact as participant to ongoing conversation \
+    - Sounds\
+    - [Stretch] Lightweight sign up + upgrade\
+    - [Stretch] Email as participant\
+
+\b 3. UX polishing ::..
+\b0 \
+    - Sign in screen\
+    - FTU flow\
+    - Conversation list screen\
+    - Conversation screen\
+    - Compose screen\
+    - Add participant error handling\
+
+\b 4. Open Issues ::..
+\b0 \
+    - Use NAB contact names instead of MMC participant names [dwhittle]\
+    - Update Contacts when NAB changes [dwhittle]\
+    - Support admin messages in conversation list (with our own formatted message, not the MMC snippet) [dwhittle]\
+    - Clear conversation history [dwhittle]\
+    - Will Alpha use Vespa or VX MMC (do we need to migrate to MMC API v2)? [dwhittle]\
+\
+
+\b ..::USER STORIES FOR iOS ALPHA::..
+\b0 \
+
+\b \
+
+\b0 - Feat: iOS push [[server dependency]]\
+   - Notifications are pushed to the iOS Hub app when it's in foreground and background\
+\pard\pardeftab720
+\cf0    - When app is in background:\
+   \'a0 > New message are shown as app notifications (dialog or banner depending on preference) \
+     >\strike \strikec0  [[Admin messages are not shown as background app notifications]]\strike0\striked0 \
+\pard\pardeftab720
+\cf3 \'a0\'a0\'a0\'a0 > UX deliv:\cf2  Define strings for background notifications (Aaron: Hey what's up\'85 + \cf3 Admin messages\cf2 ) + Hub icon\'a0{\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/components/nux/screenshots/alt-ios-nux-01b-sms-notification.png?view=markup"}}{\fldrslt 
+\f1 \cf4 \ul \ulc4 http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/components/nux/screenshots/alt-ios-nux-01b-sms-notification.png?view=markup}}
+\f1 \cf4 \ul \ulc4 \
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/user-stories/iOS-push-notifications/ios-push-notifications.pdf?view=co"}}{\fldrslt 
+\f0 \cf4 http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/user-stories/iOS-push-notifications/ios-push-notifications.pdf?view=co}}
+\f0 \cf5 \ulnone \
+\pard\pardeftab720
+\cf0 \'a0\'a0 - When app is in foreground:\cf5 \
+\cf0      > what do in-app notifications look like? how do they behave aside from updating conv list/view? [dwhittle]\
+\'a0\'a0\cf5 \'a0  > Conversation list gets updated in real-time with new\'a0conversations\'a0(messages + admin messages) [dwhittle:1]\
+\pard\pardeftab720
+\cf2 \'a0\'a0\'a0\'a0 > Conversation view gets updated in real-time with new messages + admin messages\'a0 [dwhittle:1]\
+     > Admin messages that were originating from user's own actions (leave, delete, add) are pushed to the client but never counted as unread\cf3 \
+   - Content of notifications can be found {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/CommsDesign/AltoidsAndroidConversationView#Admin_Messages"}}{\fldrslt \ul here}}\cf0 \
+   - Notification strings should be localizable\
+   - Notification should contain the conversation ID so that client can open the right conversation upon tapping it\
+   - Tracking: amount of iOS Hub notifications, split up per foreground and background\
+      > NOTE we cannot track all background notifications from the client, only those the user taps through to open app [dwhittle]\
+      > suggest we combine server tracking of notifications sent with client tracking of notifications received while open vs. from opening in background [dwhittle]\
+   - Register for push notification [dwhittle:5]\
+   - De-register push when user de-activates account [dwhittle:2]\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Sign In view - Size: 3\
+  > Create account button (tapping shows pop-up: "Feature is not supported yet, stay tuned!")\
+  > Hub logo\
+  > Background\
+  > Disclaimer text\
+  > Version & Copyright text\
+  > Styles for input fields, sign in button, create button, disclaimer and copyright / version text\
+  > Correct keyboard for input fields\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - Tech: Sign in errors are handled, correct error strings, inactive mail box is prompted with special string. - Size: 5\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 \
+- UX: FTU: Updated flow for number registration - 3\
+  > No "Send SMS" pop-up when tapping sign in\
+  > SMS action sheet should slide up with animation\
+  > (verbiage of SMS will stay until server has made their change)\
+  > After tap "Send" on SMS the modal progress indicator has new style \
+  > Progress indicator goes to "Complete" and stays 0.8 seconds\
+  > {\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/user-stories/improved-ftu/improved-ftu.pdf?view=co"}}{\fldrslt Flow}}\cf6 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 > Errors: FTU: Handle iOS number verification errors > unsupported carrier, time-out, could not send SMS, unknown error -> show dialog with "OK" and take back to sign in (no retry or such) - Size: 3\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf6 - UX: New UX for update profile in FTU which is more engaging\
+  > Correct disclosure verbiage\
+  > Tweaks to input box styles\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Make nav bar to look like mocks - Size: 5\
+  > Nav titles in correct size, correct strings, drop shadow\
+  > Nav title should be logo on Conversation List\
+  > Correct icons in buttons\
+  > Remove gloss in back button\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Conv list tweaks - Size: 5\
+  > Custom table view cell from interface builder\
+  > & should be ampersand instead of "and"\
+  > Font styling e.g. recent sender in bold\
+  > Space between ellipsis \
+  > Different on tap color\
+  > Time stamp position and font style\
+- UX: Conv list: Time stamp format - Size: 3\
+  > Logic to refresh time stamps: 1. on drawing the screen, 2. when waiting on screen for more than 1 min \
+  > {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/CommsDesign/AltoidsAndroidConversationList#Time_Stamp"}}{\fldrslt Time stamp rule}}\
+- UX: Conv list: Failed to send state of conversation - Size: 2\
+  > {\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/components/convo-list/screenshots/alt-ios-convo-list-03a-main-message-failedtosend.png?view=markup"}}{\fldrslt Mock}}\
+  > Conversation is sorted as of the time of the message that failed to send\
+- UX: Conv list: Sending state of conversation -  Size:3\
+  > {\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/components/convo-list/screenshots/alt-ios-convo-list-02a-main-message-inque.png?revision=62736&view=markup"}}{\fldrslt Mock}}\
+- UX: Conv list: Loading conversations progress indicator in manual refresh button (no pull-down) - Size:1\
+  > {\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/user-stories/loading-indicators/loading-messages-conv-list.pdf?view=co"}}{\fldrslt Mock}}\
+- UX: Conv list gap / loading conversations spinner + graphic - Size:1\
+- UX: Conv list: Load more conversations spinner + graphic - Size:1\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - UX: Conv list: Empty list -> promote start conversation - Size:2\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - Feat: Conv view: Retry sending reply then fail with indicator and UI to re-send or delete [stekar:8] [jherron:5]\
+  > Unsent message indicator\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf6   > Action sheet to re-send, delete or cancel unsent reply message\cf2 \
+- UX: Conv view: Reply flow (\cf3 progress spinner in nav bar, \cf2 network indicator, "Sending\'85", grayed out -> black text, time stamp) - Size: 1\cf6 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Conv view: Message layout and styling inc profile image [stekar:3] [dwhittle:8 because styling is in code]\
+  > move styling from code to Interface Builder [dwhittle]\
+  > Profile image border + drop shadow\
+  > No on tap color\
+  > Tweaks of font, styling, size, padding of sender and message text\
+- UX: Conv view: Correct color of new message indication [dwhittle:0]\
+- UX: Conv view: Input field styling and input text font (incl send button) - Size:3\
+- UX: Conv view: Input text should line break and expand to multi-line [stekar:3] [jherron:5]\
+- Feat: Conv view: Prompt if attempting to reply when more than max characters - Size:1\
+- UX: Conv view: Character count styling and display logic (only show when multiple lines) - Size:3\
+- UX: Conv view: Message time stamp format and styling - Size:2\
+- UX: Conv view: Updated admin message icon - Size:1\
+- UX: Conv view: Load more messages spinner + graphics - Size:3\
+  > {\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/user-stories/loading-indicators/loading-messages-conv-view.pdf?view=co"}}{\fldrslt Mock}}\
+- UX: Conv view: Gap: load missing messages spinner + graphics - Size:2\
+- UX: Conv view: Sending reply state - Size:3\
+  > Progress \cf3 indicator in navbar\cf2 , network indicator, "SENDING \'85" as time stamp, grayed out text\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - UX: Conv view: Failed to create conversation state (special representation) [dwhittle:2 but depends on UI]\
+- UX: Conv view: User is not a participant state [dwhittle:2 but depends on UI]\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX Admin messages (incl SMS MO:MT warnings, and \cf3 Conversation ended - Last yahoo! user leaving the conversation\cf2 ) [dwhittle:3 but depends on UI]\
+- Feat: Conv view: Unread message count in back button on the nav bar [dwhittle:3, but interaction-wise I don't get this]\
+\pard\pardeftab720
+{\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/components/convo-view/screenshots/alt-ios-convo-view-01d-main-message-sms-notification.png?view=markup"}}{\fldrslt 
+\f1 \cf4 \ul http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/components/convo-view/screenshots/alt-ios-convo-view-01d-main-message-sms-notification.png?view=markup}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 - Tech: Conv view: Improve logic for refreshing messages: Bug:5258597 [dwhittle:3]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Compose: To field styling, correct ghost text, padding, position of + icon - Size:3\cf0 \
+\cf2 - UX: Compose: Number and name should turn into lozenge when entering delimiter or tapping add participant - Size:3\cf0 \
+\cf2 - UX: Compose: Message input field styling, ghost text [dwhittle:2, partially styled by code]\
+- Feat: Compose: Character count inc. prompt if more than max char (was - Size 2)\
+- UX: Compose: Type-ahead results styling for text and background, tap-state color [dwhittle:3 all code, no xib]\
+- UX: Compose: Lozenge styling of font and assets, select state [dwhittle:3 all code, no xib]\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - UX: Compose: Create conv flow (network spinner, "Sending\'85", grayed out -> black text, time stamp) [prepare same UX for reply]- Size: Size 3\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - Compose: Handle errors: {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/CommsDesign/AltoidsiOSCompose#Exceeding_6_Participants_maximum"}}{\fldrslt Max participants}}, At send when there is a local invalid number (red lozenge) prompt "invalid" - {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/CommsDesign/AltoidsiOSCompose#Error_cases"}}{\fldrslt mock}}. Show invalid number dialog in conversation view if server reports error after compose - {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/CommsDesign/AltoidsiOSConversationView#Invalid_Mobile_Number_in_Recipie"}}{\fldrslt mock}} - Size: 3\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - Errors: Compose: Handle send message errors (prompt if known invalid ph#, full failure, partial failure) - Size:5\cf0 \
+- Tech: Normalize SMS addresses based on user's country code to support sending to local numbers without country code [dwhittle:13]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - UX: Conv details: User is not a participant state [dwhittle:2 but depends on UI]\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - Errors: Conv details > add participant: Error handling - Size:5\
+  > Error: Channel already selected\
+  > Error: Max participants reached\
+  > Error: Invalid address\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - UX: Single tap to add participant with only one number - Size:3\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf6 - Feat: Create contact when adding participant to ongoing conversation\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - Feat: Sounds and vibration (new message, send message) - Size:5\
+- Feat: Settings: Toggle sounds and vibration on / off [stekar:8] [dwhittle:3]\cf2 \
+\pard\pardeftab720
+\cf2 - Feat: Leave conversation [stekar:13] [dwhittle:5, just API call] [jherron:5]\cf3 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 \
+- UX: Tab bar: Move Conversations to the middle and Contacts to the left - Size:1\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 \
+\pard\pardeftab720
+\cf0 - Tech: Remove Edit button from Contacts screens [dwhittle:0]\
+- Tech: Remove "+" button on Contacts screen [dwhittle:0]\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 ..::iOS SPECIFIC STORIES FOR GA:..\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf6 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 - Tech: Implement tracking library for iOS and instrument \cf6 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: User friendly keyword and phrase for iOS number verification in FTU\
+- MMC Server: User friendly keyword and phrase for iOS number verification in FTU\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - Feat: Add participant as contact from Participant Info screen\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Conv list: "Failed to send" should be displayed as most recent message in the Conv list even though the list is refreshed (dependent on MMC API v2)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf6 \
+\pard\pardeftab720
+\cf0 - Feat: Paranoid approved logic for device registration and automatic number re-validation without extra SMS MO\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - Feat: Conv details > add participant: Correct check box list styling\cf0 \
+\cf2 - UX: Compose: Type-ahead show dummy phone type\
+- UX: No auto complete results case\
+- Feat: Compose: Type-ahead show phone type\
+- UX: Conv Details Select contact (incl + icon) \
+- Feat: Conv details > add participant: Count of selected participants\
+- Conv details > add participant: Let user remove current participants from list\
+- UX: Phone number formatting (localizable)\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - UX: Compose: Highlight selected address when tapping a lozenge in To-field\
+- UX: Compose: To field: "To: " is its own column\
+\pard\pardeftab720
+\cf3 - UX: Handle already added participants in Add Participant screen (disable)\cf2 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 - Tech: User can sign in with other domains, rocket mail, ymail etc - Size: 0.5\cf2 \
+- Feat: Logic for automatic refresh of conv list if user has turned off push notifications\
+- Feat: Validate isHub for phone numbers in To-field and prompt when sending\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - Feat: Delete conversation (+ optionally leave) \cf2 \
+\
+- Feat: Conv list: pull down for manual refresh\
+\
+- UX: Style conversation details\
+- UX: Style add participant screen\
+     - Check-box list\
+     - Count of selected contacts\
+     - Max participants\
+     - Not a valid channel\
+\cf3 - Feat: Conv details > Delete history\
+- UX: Conv details: User is not a participant state\
+- UX: Conv details: User is the only participant state\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Participant Info view\
+- UX: Participant info: Remove participant\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - UX: Settings view layout\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Contacts\
+- UX: Contact Details \cf3 \
+\pard\pardeftab720
+\cf3 - Feat: Show default number when adding participant\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - UX: Admin message "Conversation ended because last yahoo! user left the conversation"\
+\pard\pardeftab720
+\cf2 - Feat: De-activate account\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - Feat: About\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf6 - Feat: Legal / Policy / Copyright\cf0 \
+\pard\pardeftab720
+\cf0 - Tech: Sync contacts from NAB so adds/dels from NAB are reflected in app\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf3 - UX: Vibrate on new messages in conv view\
+- Feat: Clickable URLs\
+- Feat: Copy text from Hub message\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - Feat: Add contact from Contacts view\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 MMC\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 - MMC SMS: PO: Improved SMS intro message incl link to app promo page\
+  > Why: So more users convert to using Hub\
+- MMC SMS: PO: Prompt SMS users sometimes to download the app [[server dependency]] \
+  > Why: So more users convert to using Hub\
+- MMC SMS: PO: Initial message should only say STOP once, after that it should be LEAVE\
+  > Why: So more users learn how to leave a conversation without opting out from all SMS:s from Yahoo!\
+- MMC SMS: PO: Inject MO:MT mute message for SMS participant in last message when possible\
+  > Why: So we reduce cost by limiting the amount of SMS that are sent out\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf2 - MMC Server: User friendly keyword and phrase for iOS number verification in FTU\
+  > Why: So we get higher conversion\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 \
+\
+..::ANDROID AND iOS STORIES FOR GA:..\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 Server backlog: {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Devel/MMCv1FirstReleaseSchedule"}}{\fldrslt v1.0}} \
+\
+- Tech: Instrument user stories from sprint 19 for tracking\
+\
+\pard\tx560\tx1120\pardeftab720
+\cf0 - Tech: Investigate backend move from {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Devel/MMCv0_5ProgramInfo"}}{\fldrslt Vespa to VX}}\
+- Tech: Investigate backend move to {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/show_bug.cgi?id=5290798"}}{\fldrslt 1.0 MMC APIs}}\
+\
+- Tech: Adapt to server changes for {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/buglist.cgi?query_based_on=&query_format=advanced&short_desc_type=allwordssubstr&short_desc=&product_name=Multi+Modal+Communications&target_milestone=Train+15&long_desc_type=substring&long_desc=&bug_file_loc_type=allwordssubstr&bug_file_loc=&status_whiteboard_type=allwordssubstr&status_whiteboard=&keywords_type=allwords&keywords=&deadlinefrom=&deadlineto=&bug_status=NEW&bug_status=ACCEPTED&bug_status=REOPENED&bug_status=RESOLVED&bug_status=VERIFIED&bug_status=CLOSED&bug_status=__orphaned__&production=&material_to_version=&emailassigned_to1=1&emailtype1=substring&email1=&emailassigned_to2=1&emailreporter2=1&emailqa_contact2=1&emailcc2=1&emailtype2=substring&email2=&bugidtype=include&bug_id=&chfieldfrom=&chfieldto=Now&chfieldvalue=&cmdtype=doit&order=Reuse+same+sort+as+last+time&field0-0-0=noop&type0-0-0=noop&value0-0-0="}}{\fldrslt v0.1 tech debt}}\
+- Tech: Backend move from {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Devel/MMCv0_5ProgramInfo"}}{\fldrslt Vespa to VX}}\
+- Tech: Adapt to fixes on {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Devel/MMCMeetingNotes#Athena_Meeting_Notes_12_6_11"}}{\fldrslt v0.2 Athena issues}}\
+- Tech: Adapt to {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/show_bug.cgi?id=5290798"}}{\fldrslt 1.0 MMC APIs}}\
+   > Message id is dynamic?\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+- Reach: Expand to PC2SMS markets (incl. minimal localization) {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/show_bug.cgi?id=5291715"}}{\fldrslt [[server dependency]]}}\
+    > Intls: PH, VN, IN, ID, MY, CA, PK, KW, TH\
+    > Client work: (size: 5)\
+       > "Minimal Localization":\
+         > Verify how all these languages work when entered and received, and participant names\
+         > Verify how right to left input text appear in message bubbles\
+         > Verify date formats to understand experience without full localization\
+         > Verify how contact list behaves with contacts from different locales\
+         > Localize to country specific Legal and Policy links\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\i \cf0     Server dependencies
+\i0 \
+    > Number verification:\
+       - Server responds with country/carrier specific shortcode based on the mcc / mnc / sid (check what's avail for CDMA iOS)\
+       > For iOS: if can't deduce user's country, get list of countries/carriers from server and let user select\
+    > SMS Sign up (this is not needed if we implement lightweight sign up but good as fall-back if that is delayed):\
+       - Server responds with country/carrier specific shortcode and keyword based on the mcc / mnc / sid (currently based on IP)\
+       - Countries: US, CA, PH, IN, MY, PH, VN, ID (not MX yet since no MMC SMS there) - {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Membership/MobileRegLogin#SMS_Athena_Coverage"}}{\fldrslt mobile sign up twiki}}\
+       - Membership tracking of Hub sign up per app (Android, iOS, j2me) and country\
+\pard\pardeftab720
+\cf0    
+\b Acceptance Criteria
+\b0 \
+   For each of the new carriers & markets:\
+   - Clients can register a number\
+   - Clients can renew the validation for a number\'a0\
+   - Support for market specific renew expiry time\
+   - Clients can un-register a number\
+   - MMC SMS commands work: LEAVE, WHO, HELP, INFO, ENABLE, STOP\
+   - MMC SMS commands are localized to\'a0PH, VN, MY, CA-FR, TH\
+   - MMC SMS strings localized to PH, VN, MY, CA-FR, TH\
+   - MMC SMS support for market specific MO:MT ratios\
+   -\'a0MMC SMS tracking of\'a0carriers and markets has been validated\
+   - Markets:\'a0US, PH, VN, IN, ID,\'a0MY, CA, PK, KW, TH\
+   - Carriers: as listed\'a0{\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Devel/AltoidsSupportedCarriers#Carriers_supported_for_sending_S"}}{\fldrslt \ul here}}\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0     \
+- Adoption: Lightweight sign up + upgrade to full yid {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/show_bug.cgi?id=5291083"}}{\fldrslt [[server dependency]]}}\
+    > Lightweight sign up page - {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Devel/AltoidsSignUp#Requirements"}}{\fldrslt twiki}}\
+       - Error handling\
+       - UX: change CTA verbiage on Sign in page (it's not 
+\i create
+\i0  
+\i yahoo id
+\i0  - since yahoo id is created later at upgrade)\
+    > iOS: register Hub pseudo protocol so app can be opened with token from SMS MT\
+    > Logic to prompt upgrade based on engagement\
+    > Upgrade from Settings - {\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/ios/user-stories/upgrade-to-full-yID/upgrade-to-full-yID.pdf?view=co"}}{\fldrslt mock}}\
+    > Upgrade to full yid page  - {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Devel/AltoidsUpgradeToFullYID"}}{\fldrslt twiki}}\
+       - If it turns out that user is under age we need to delete their account \
+       - Error handling\
+    > Client side tracking of light sign up fail/succ/errors, upgrade prompts/fail/succ/underage+time between sign up and upgrade\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\i \cf0     Server dependencies:\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\i0 \cf0     > API:s for creation of lightweight accounts via SMS MO + native UI\
+    > API:s to upgrade to full yid \
+    > API:s are client agnostic (iOS, Android, j2me)\
+    > Membership to track light registration successes / failures\
+    > Membership to upgrade successes / failures and amount of users who are underage\
+    > Membership to monitor api:s\
+ \
+\pard\tx560\tx1120\pardeftab720
+\cf0 - Feat: Add Email participants to conversation {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/show_bug.cgi?id=5290766"}}{\fldrslt [[server dependency]]}} {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/show_bug.cgi?id=5290884"}}{\fldrslt dependency 2}}\
+    > Contacts Screen should show contacts with email as well\
+    > Auto-suggest should show contacts with email\
+    > Mail icon in lozenge?\
+    > Mail icon next to participant like hub icon?\
+    > Show email on Contact Details / Participant info\
+    > Client side email validation (name@domain.com) - not blocking send\
+    > Server check if email isMMC user\
+    > Extend infrastructure to handle email handles\
+    > Client side tracking\
+\pard\tx560\tx1120\pardeftab720
+
+\i \cf0     Server dependencies\
+\pard\tx560\tx1120\pardeftab720
+
+\i0 \cf0     > Server check if email isMMC user (yid of Hub user)\
+    > Handle email bounces > send admin message back to conv + remove participant from conv\cf6 \
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+\cf0 \
+- Quality: Rock solid notifications for Android [[server dependency]]\
+    > Less battery drain\
+    > More reliable notifications\
+- Feat: Import FB contacts via FB connect  <- Need more info on what can be done and makes sense provide value\
+- Viral: Rate and review app in Market/App Store after some use\
+- Viral: Invite to Hub via SMS or email\
+- Viral: Post "I'm using Hub" on FB wall after download\
+- Feat: Send / rcv photo {\field{\*\fldinst{HYPERLINK "http://twiki.corp.yahoo.com/view/Devel/MMCMessageTemplates"}}{\fldrslt [[server dependency]]}} {\field{\*\fldinst{HYPERLINK "http://svn.corp.yahoo.com/view/yahoo/ued/products/communications/projects/altoids/html-email/screenshots/"}}{\fldrslt mail mocks}}\
+- Feat: Save photo to device gallery / camera roll\
+- Reach: Localize to PC2SMS markets {\field{\*\fldinst{HYPERLINK "http://bug.corp.yahoo.com/show_bug.cgi?id=5291715"}}{\fldrslt [[server dependency]]}}\
+    > Localize strings (remember KW has English)\
+    > Localize time/date stamps\
+    > Localize phone numbers\
+    > Number verification: localized keywords (iOS)? \
+    > Reduce the max char in input (compose and reply) when user inputs non-GSM 7 characters\
+    > Handle all relevant dialing prefixes\
+    > SMS Sign Up: localized keywords (only if lightweight sign up is delayed)\
+- Reach: Expand to UK via aggregator [[server dependency]] (pilot to use new SMS vendor to expand SMS reach in EMEA)\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 ..::STRETCH STORIES FOR GA BOTH ANDROID AND iOS:..
+\b0 \
+- Usability: Walk through of features at first launch\
+- Reach: Allow provisioning on device without SMS (global release, iPod Touch, tablets) [[server dependency]]\
+  > User can sign in on a device without SMS\
+  > User can send messages to other Hub users on a device w/o SMS\
+  > User sees Hub users on device w/o SMS as isMMC\
+- Reach: Localized for all markets\
+- Viral: 'Friends on MMC' tab in the 'Contacts' section - [[server dependency]]\
+- UX: Show display image of recent sender in Conversation list\
+- Feat: Conversation topic [[server dependency]]\
+- Monetize: Ads [[server dependency]]\
+\
+
+\b ..::TWEAKS TO CONSIDER FOR iOS & ANDROID:..\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 - Feat: Search for contacts in Contacts view and Add Participant > Select Contacts check-box list view\
+- Tech: Exclude / munge private content from logs so it's not sent to server via Report a Problem\
+- Tech: Determine shortcode for sign up from mnc/mcc/msid [[workaround if server fix is delayed]]\
+- Tech: Store f-cookie to avoid getting challenge when using app in other countries\
+- UX: Improve error messages for non-supported phone numbers. Show country code separated from the phone number, e.g. +1-4083495555 (instead of 14083495555) -> non-supported number, mo:mt ratio warning etc\
+- UX: Time out sending replies and let user manually re-send\
+- UX: Update Profile / FTU to be more clear and fun\
+- UX: HW back button on Conv view should go to Conv list\
+- UX: Update profile in FTU to be more clear and fun\
+- Optimize: Fetch profile directly after sign in (while verifying ph#, before showing edit profile)\
+- Tech: Android: Allow app to be installed on SD card (live with the consequences of worse performance)\
+- UX Android: Make it clearer that phone numbers are actionable on Contact Details and Participant Info (Blake)\
+- UX Android: Can have an additional affordance, to get a detail list of the conversation, from the conversation list: http://developer.android.com/design/static/content/app_structure_shortcut_on_item.png\
+- UX Android: Could have a rich landscape/cover flow view of the conversations media content like so: http://developer.android.com/design/static/content/app_structure_music_lndscp.png\
+- UX Android: Can have custom notifications on the navbar: http://idevrecipes.files.wordpress.com/2011/03/instagram_custom_tabbar_notification.jpg?w=460&h=690\
+- UX Android: When user scrolls all the way to the top/bottom of the conversation view, if they scroll just a bit more, itll peak into the conversation above/below that one in the conversation list, and then can jump into that conversation view, instead of going back to the conversation list, and then back into the conversation view.  Like so: http://idevrecipes.com/2010/12/28/how-does-the-reeder-iphone-app-swipe-up-and-down-between-articles/\
+- UX Android: Can do a side swipe, to move from the conversation view, to the conversation details, like so: http://developer.android.com/design/static/content/app_structure_gmail_swipe.png\
+- UX Android: Multipane layouts \'96 once we can incorporate more media content, like photos and locations, one pane can have that, and the rest can be the conversation: http://developer.android.com/design/patterns/multi-pane-layouts.html\
+- Feat iOS: Edit contact\
+- Tech: Error handling in number registration: if the mcc / mnc / sid provided to server is invalid, client should present UI to let user pick their country and carrier so server can tell client which shortcode to send registration SMS to\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b \cf0 ..::LONG TERM STORIES::..\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural
+
+\b0 \cf0 - UX: Change number verification to be SMS MT driven (rather than MO) to reduce cost in markets where MO are charged premium [[server dependency]]\
+- Viral: Notification when a contact from your AB joins Hub [[server dependency]]\
+- Viral: Ability to associate more handles with your Hub account? Ala iMessage & FaceTime - [[server dependency]]\
+- Feat: Send / rcv location [[server dependency]]\
+- Feat: Conversation context (when conversations from media) [[server dependency]]\
+- Feat: Send receive emoticons [[server dependency]]\
+- Feat: Landscape mode\
+- Feat: iOS - Sign Up (if no lightweight sign up is implemented)\
+- UX: Align compose and reply UI\
+- Server: Push notifications after message is stored so it's ready to be fetched immediately [[server dependency]]\
+- Feat: Report Abuse incl conversation transcript\
+- Feat: Allow acces to non US / KO <13 yo\
+- Feat: Allow access to US <13 yo\
+  > Parental consent to collect and disclose ph#\
+  > Only disclose first name (image?)\
+  > Both for existing and new <13 yids \
+  > How about other countries? e.g. KO \
+  > If other countries have less restrictions we can enable access for such users only?\
+- Feat: Send / rcv url [[server dependency]]\
+- Reach: Alternate way of validating phone number, e.g. call back\
+- Privacy: Do not disclose ph# to other participants [[server dependency]]\
+- Feat: Favorite / pin individual message [[server dependency]]\
+- Feat: Block user [[server dependency]]\
+- Feat: Block list management [[server dependency]]\
+- Feat: Delete individual message \
+- UX: iOS present notification more user friendly the first 10 min after going background\
+- Feat: Custom notification sound themes\
+- UX: Custom dialog design\
+- Feat: Show previous conversations with participant (all channels) on Participant Info & Contact Details\
+\
+\
+\pard\pardeftab720
+\cf0 \
+}

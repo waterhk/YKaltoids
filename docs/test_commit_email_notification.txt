@@ -1,0 +1,5 @@
+We are only receiving commit notification emails when certain people commit.
+It's probably because of a pattern that was added to try to limit notifications to only commits in trunk, to exclude private branch commits.
+This file is just scratch so we can test whether the emails are triggered.
+
+dwhittle

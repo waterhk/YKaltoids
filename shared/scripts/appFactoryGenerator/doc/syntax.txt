@@ -1,0 +1,116 @@
+0. Whitespace
+   1. Significant characters are non-whitespace characters.
+   2. Lines without significant characters are ignored.
+   3. All characters on a line following (and including) a # character are ignored.
+   4. Trailing insignificant characters on a line are ignored.
+   5. A token is a string of characters bounded by insignificant characters, EOF, or BOF.
+   6. Insignificant characters between tokens are ignored, except in that they seprate tokens.
+
+1. Documentation Grammar Syntax
+     *  the preceeding expression occurs 0 or more times
+     +  the preceeding expression occurs 1 or more times
+     |  or (lowest operator precedence possible)
+   [ ]  the enclosed expression is optional
+   EOF  end of file
+        all other non-alphanumeric characters are literal
+        all other alphanumeric characters are symbol names
+
+2. File Format
+   ExternalIncludeFileForProtocolHeader*
+   ExternalIncludeFile*
+   LibraryIncludeFile*
+   Statement+
+   EOF
+
+   Statement:                 IncludeStatement | ComponentDeclaration
+   IncludeStatement:          <fileName>
+   ComponentDeclaration:      [AppDelegateFlag | InstanceFactoryFlag]componentName [: ComponentCapitalizedName] [~ ComponentClassName] [/ IncludePath] DependencyList
+   AppDelegateFlag:           !
+   InstanceFactoryFlag:       *
+   DependencyList:            { Dependency* }
+   Dependency:                [InitializerInjectableFlag][OperationalParamFlag]componentName; | LiteralExpression;
+   InitializerInjectableFlag: :
+   ExternalIncludeFileForProtocolHeader: <<<includePathAndFileName>>>
+   ExternalIncludeFile:       <<includePathAndFileName>>
+   LibraryIncludeFile:        %includePathAndFileName%
+
+3. AppFactoryClassName
+   1. defines the class name for the generated app factory
+   2. the generated output files will be named AppFactoryClassName.h and AppFactoryClassName.m
+
+4. componentName
+   1. defines the name of the app factory's accessor for the component
+   2. defines the parameter name to use when injecting the component as a subsequent (non-first) dependency to another component's initializer (initWith... componentName: ...)
+
+5. ComponentCapitalizedName
+   1. defines the parameter name to use when injecting the component as the first dependency to another component's initializer (initWithComponentCapitalizedName: ...)
+   2. if not specified, the initial capitalizion of componentName is used (initWithComponentName: ...)
+
+6. ComponentClassName
+   1. defines the class name of the component's type (ComponentClassName* componentName)
+   2. defines the base name of the header file containing the component's interface declaration (#import "ComponentClassName.h")
+   3. if not specified, ComponentCapitalizedName is used
+
+7. AppDelegateFlag
+   1. identifies the given component as the app delegate
+   2. there must be exactly one app delegate
+   3. the app delegate is not a real component managed by the AppFactory, but instead the placeholder for a special dependency list for dependencies injected into the app delegate
+   4. the app delegate must implement the InjectableAppDelegate protocol (which the app should define to have an injectWith... selector in the same order as the component's listed dependencies)
+   5. all app delegate dependencies must be specified with the InitializerInjectableFlag because setter injection is not used for app delegate dependencies
+
+8. InstanceFactoryFlag
+   1. identifies the given component as being the product of an instance factory
+   2. an instance factory protocol defining a factory method will be generated for the component (given Component, the protocol will be ComponentInstanceFactory, defining createComponent)
+   3. other components may list the instance factory as a dependency
+   4. other components may list the product component itself as a dependency, and the app factory will inject a unique instance of the product component (valid only if the product component does not accept operational parameters as indicated by OperationalParamFlag)
+   5. unlike other components, the app factory will not hold a single (service) instance of any product component
+
+9. IncludePath
+   1. specifies path in which to find the component's class head file (#import "includePath/ComponentClassName.h")
+   2. typically only used with components defined in libraries
+
+10. DependencyList
+   1. a whitespace-separated list of the componentNames of the component's dependencies
+   2. all such dependencies must be defined as components within the app factory
+
+11. LiteralExpression Dependency
+   1. specifies component dependencies or parameters not fulfilled by components described by the system
+   2. must include parameter name and separator as the expression is used literally in place of a parameter
+   3. must use parameter name casing as expected by setter or place-specific initializer parameter
+   4. examples:
+      1. notificationCenter:[NSNotificationCenter defaultCenter]
+      2. UDPPortNum:1900
+      3. Color:@"Blue"  (when used with InitializerInjectableFlag as first initializer injectable: initWithColor:@"Blue")
+      4. color:@"Red"   (when used with InitializerInjectableFlag as subsequent initializer injectable: initWithFoo:0 color:@"Red")
+
+12. InitializerInjectableFlag
+   1. indicates the given dependency should be injected via initializer rather than property setter
+   2. initializer injectables must be listed in the order expected by the designated initializer
+   3. in the absence of any initializer injectable dependencies, a component's designated initializer is init with no parameters
+
+13. OperationalParamFlag
+   1. indicates that the given parameter is an operational parameter, not an app factory component
+   2. valid only within dependency lists of components that having the InstanceFactoryFlag
+   3. must be of the form: *paramName:(Type) where paramName and Type are cased as expected by the product component's initializer (TODO: update the formal grammar to reflect this, or better yet move to a more expressive file format)
+   4. defines operational parameter for the instance factory method (and passes it through to the product component's initializer)
+
+14. IncludeStatement
+   1. specifies another definition file to include for component definitions
+   2. pathing is relative to definition file being processed
+
+15. ExternalIncludeFile
+   1. specifies additional header files to be imported by app factory method file
+   2. only useful to support external resources referenced by LiteralExpression Dependencies
+   3. <<foo/Bar.h>> generates #import "foo/Bar.h"
+
+16. ExternalIncludeFileForProtocolHeader
+   1. specifies additional header files to be imported by app factory protocol header file
+   2. only useful to support external resources referenced by LiteralExpression Dependencies and operational parameters
+   3. <<<foo/Bar.h>>> generates #import "foo/Bar.h"
+   4. this is increasingly kludgy
+
+17. LibraryIncludeFile
+   1. specifies additional header files to be imported by app factory method file
+   2. only useful to support external resources referenced by LiteralExpression Dependencies
+   3. %MessageUI/MFMessageComposeViewController.h% generates #import <MessageUI/MFMessageComposeViewController.h>
+

@@ -1,0 +1,29 @@
+# YAFormattedUILabel #
+
+YAFormatted UILabel is a subclass of the UILabel class, and it has the property NSMutableAttributedString, that enables assigning an 'attributedString" to the instance of this class. This cannot be done with UILabel and so we declare this new class.  We override the drawRect method and use coreText to draw our text. 
+
+## Usage ##
+
+You can basically create an NSMutableAttributedString, and add attributes to it. This can be set to the FormattedUILabel such that
+
+NSMutableAttributedString *attributedString; //  alloc & init //
+// Add attributes to the attributedString //
+[formattedUILabel setAttributedString:attributedString];
+
+So, when the drawTextInRect method is called, it draws the text in the frame using the attributes added to the attributedString.
+
+## Usage With Interface Builder ##
+
+The following attributes can be set in the interface builder for the YAFormattedUILabel :
+
+1. Font Type
+2. Font Size
+3. Font Color
+
+And so, setting these would automatically set the attributedString, and the correct text is drawn for the label. 
+
+Note:
+
+In order to add other attributes, you will need to add them as attributes to the attributedString  and call the method, `setAttributedString`. 
+
+

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model name="" userDefinedModelVersionIdentifier="1.0" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="870" systemVersion="10K531" minimumToolsVersion="Automatic" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Address" representedClassName="YAAddress" isAbstract="YES">
+        <attribute name="handle" optional="YES" attributeType="String"/>
+        <relationship name="participants" toMany="YES" minCount="1" deletionRule="Nullify" destinationEntity="Participant" inverseName="address" inverseEntity="Participant"/>
+    </entity>
+    <entity name="Conversation" representedClassName="YAConversation">
+        <attribute name="conversationID" optional="YES" attributeType="String"/>
+        <attribute name="isMuted" optional="YES" attributeType="Boolean"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date"/>
+        <attribute name="topic" optional="YES" attributeType="String"/>
+        <attribute name="totalMessages" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <attribute name="unreadMessages" optional="YES" attributeType="Integer 32" defaultValueString="0"/>
+        <relationship name="conversationContext" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="ConversationContext" inverseName="conversation" inverseEntity="ConversationContext"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="conversation" inverseEntity="Message"/>
+        <relationship name="mostRecentMessage" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Message" inverseName="mostRecentForConversation" inverseEntity="Message" syncable="YES"/>
+        <relationship name="participants" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Participant" inverseName="conversation" inverseEntity="Participant"/>
+        <relationship name="sender" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Participant" inverseName="conversationSender" inverseEntity="Participant"/>
+    </entity>
+    <entity name="ConversationContext" representedClassName="YAConversationContext">
+        <relationship name="conversation" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="conversationContext" inverseEntity="Conversation"/>
+    </entity>
+    <entity name="EmailAddress" representedClassName="YAEmailAddress" parentEntity="Address"/>
+    <entity name="Message" representedClassName="YAMessage">
+        <attribute name="body" optional="YES" attributeType="String"/>
+        <attribute name="messageID" optional="YES" attributeType="String"/>
+        <attribute name="read" optional="YES" attributeType="Boolean"/>
+        <attribute name="snippet" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date"/>
+        <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="messages" inverseEntity="Conversation"/>
+        <relationship name="mostRecentForConversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="mostRecentMessage" inverseEntity="Conversation" syncable="YES"/>
+        <relationship name="sender" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Participant" inverseName="messages" inverseEntity="Participant"/>
+    </entity>
+    <entity name="MMCAddress" representedClassName="YAMMCAddress" parentEntity="Address"/>
+    <entity name="Participant" representedClassName="YAParticipant" parentEntity="Person">
+        <attribute name="isUser" optional="YES" attributeType="Boolean"/>
+        <attribute name="participantID" optional="YES" attributeType="String"/>
+        <attribute name="status" optional="YES" attributeType="Integer 32" defaultValueString="0" syncable="YES"/>
+        <relationship name="address" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="Address" inverseName="participants" inverseEntity="Address"/>
+        <relationship name="conversation" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="participants" inverseEntity="Conversation"/>
+        <relationship name="conversationSender" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Conversation" inverseName="sender" inverseEntity="Conversation"/>
+        <relationship name="creator" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Participant" inverseName="creator" inverseEntity="Participant"/>
+        <relationship name="messages" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Message" inverseName="sender" inverseEntity="Message"/>
+    </entity>
+    <entity name="Person" representedClassName="YAPerson" isAbstract="YES">
+        <attribute name="firstName" optional="YES" attributeType="String"/>
+        <attribute name="lastName" optional="YES" attributeType="String"/>
+        <attribute name="photoUrl" optional="YES" attributeType="String"/>
+        <attribute name="timestamp" optional="YES" attributeType="Date"/>
+        <relationship name="image" optional="YES" minCount="1" maxCount="1" deletionRule="Nullify" destinationEntity="PersonImage" inverseName="persons" inverseEntity="PersonImage" syncable="YES"/>
+    </entity>
+    <entity name="PersonImage" representedClassName="YAPersonImage" syncable="YES">
+        <attribute name="imageData" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="photoURL" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="persons" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Person" inverseName="image" inverseEntity="Person" syncable="YES"/>
+    </entity>
+    <entity name="RegistrationInfo" representedClassName="YARegistrationInfo">
+        <attribute name="expirationDate" optional="YES" attributeType="Date" syncable="YES"/>
+        <attribute name="phoneNumber" optional="YES" attributeType="String"/>
+        <attribute name="profileUpdated" optional="YES" attributeType="Boolean"/>
+        <attribute name="token" optional="YES" attributeType="String"/>
+    </entity>
+    <entity name="SMSAddress" representedClassName="YASMSAddress" parentEntity="Address"/>
+    <entity name="User" representedClassName="YAUser" parentEntity="Person"/>
+    <elements>
+        <element name="Address" positionX="-90" positionY="-63" width="128" height="90"/>
+        <element name="Conversation" positionX="178" positionY="36" width="128" height="225"/>
+        <element name="ConversationContext" positionX="142" positionY="288" width="128" height="60"/>
+        <element name="EmailAddress" positionX="52" positionY="-234" width="128" height="45"/>
+        <element name="Message" positionX="133" positionY="-162" width="128" height="180"/>
+        <element name="MMCAddress" positionX="-153" positionY="-225" width="128" height="45"/>
+        <element name="Participant" positionX="-126" positionY="81" width="128" height="165"/>
+        <element name="Person" positionX="369" positionY="18" width="128" height="120"/>
+        <element name="PersonImage" positionX="160" positionY="192" width="128" height="90"/>
+        <element name="RegistrationInfo" positionX="358" positionY="-234" width="128" height="105"/>
+        <element name="SMSAddress" positionX="-92" positionY="-159" width="128" height="45"/>
+        <element name="User" positionX="324" positionY="228" width="128" height="60"/>
+    </elements>
+</model>
